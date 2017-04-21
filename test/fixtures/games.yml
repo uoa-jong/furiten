@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  e_userid: 1
+  e_score: 1.5
+  s_userid: 1
+  s_score: 1.5
+  w_userid: 1
+  w_score: 1.5
+  n_userid: 1
+  n_score: 1.5
+  add_time: 2017-04-22 03:56:42
+  game_date: 2017-04-22 03:56:42
+
+two:
+  e_userid: 1
+  e_score: 1.5
+  s_userid: 1
+  s_score: 1.5
+  w_userid: 1
+  w_score: 1.5
+  n_userid: 1
+  n_score: 1.5
+  add_time: 2017-04-22 03:56:42
+  game_date: 2017-04-22 03:56:42
