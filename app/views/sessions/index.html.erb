@@ -1,0 +1,12 @@
+<h1>ユーザー管理</h1>
+
+<hr>
+	<ul>
+		<% @users.each do |r| %>
+
+			<li>
+					<%= r.user_name%> (<%= r.student_id%>)   <%=link_to "[削除]", user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" }%>
+			</li>
+		<%end%>
+	</ul>
+</hr>

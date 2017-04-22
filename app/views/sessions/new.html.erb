@@ -1,0 +1,19 @@
+ <h1> Sessions#new </h1>
+ <p> Find me in app/views/sessions/new.html.erb</p>
+ 
+ 	<% @user.errors.each do |attr, message| %>
+			<%= message%>
+	<%end%>
+	<% if notice %>
+       		<alert> <%= notice%> </alert>
+       	<%end%>
+
+ 	<%= form_for @user, url: sessions_path, method: :post do |f| %>
+   		<%= f.label :student_id %>
+   		<%= f.text_field :student_id %>
+   		<%= f.label :password%>
+   		<%= f.password_field :password %>
+   		<%= f.submit "login" %>
+  	<%end%>
+
+  	<%= link_to "ユーザー登録", new_user_path%>
