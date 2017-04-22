@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+  <html lang="ja">
+    <head>
+      <meta charset="utf-8"></meta>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--title-->
+      <title>furiten_proto</title>
+    </head>
+
+    <body>
+      <nav id="navigation">
+	<div class="nav-wrapper">
+	  <div id="logo"><a href="#" class="brand-logo">Logo</a></div>
+	  <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">管理者用</a></li>
+            <li><a href="#">対局記録</a></li>
+            <li><a href="#">記録一覧</a></li>
+	    <li><a href="#">マイページ</a></li>
+	    <li><a href="#">ランキング</a></li>
+	  </ul>
+	</div>
+      </nav>
+      
+      <div class="section">
+	<div class="container">
+	  <div class="row">
+	    <div class="col s8 offset-s2">
+	      <blockquote><p>対局記録</p></blockquote>
+	    </div>
+	    <!--datepicker-->
+	    <div class="col s8 offset-s2">
+	      <label for="game-date" class="active">対局日</label>
+	      <input id="game-date" type="date" class="datepicker">
+	    </div>
+	    <!--成績入力-->
+	    <div class="row">
+	      <form class="col s8 offset-s2">
+		<div class="row">
+		  <div class="col s4 input-field">
+		    <input value="会津太郎" id="st-name" type="text" class="validate">
+		    <label class="active" for="st_name">東</label>
+		  </div>
+		  <div class="col s4 input-field">
+		    
+		  </div>
+		</div>
+	      </div>
+	      
+	      <div class="row">
+		<div class="col s4 input-field">
+		  <input value="会津花子" id="st-name" type="text" class="validate">
+		  <label class="active" for="st_name">南</label>
+		</div>
+		<div class="col s4 input-field">
+		  
+		</div>
+	      </div>
+	    </div>
+	    
+	    <div class="row">
+	      <div class="col s4 input-field">
+		<input value="若松次郎" id="st-name" type="text" class="validate">
+		<label class="active" for="st_name">西</label>
+	      </div>
+	      <div class="col s4 input-field">
+		
+	      </div>
+	    </div>
+
+	    <div class="row">
+	      <div class="col s4 input-field">
+		<input value="若松花代" id="st-name" type="text" class="validate">
+		<label class="active" for="st_name">北</label>
+	      </div>
+	      <div class="col s4 input-field">
+		
+	      </div>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/style.js"></script>
+    </body>
+  </html>
