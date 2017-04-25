@@ -6,3 +6,7 @@ $('.datepicker').pickadate({
 $(document).ready(function() {
     $('select').material_select();
 });
+
+/*$(document).ready(function() {
+    $("option").css("color","red");
+});*/

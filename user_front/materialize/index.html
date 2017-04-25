@@ -43,7 +43,10 @@
 	    <div class="row">
 	      <form class="col s8 offset-s2">
 		<div class="row">
-		  <div class="col s4 input-field">
+		  
+		  <!--select name-->
+		  <div class="col s5 input-field">
+		    <i class="material-icons prefix">account_circle</i>
 		    <select>
 		      <option value="" disabled selected>Choose your name</option>
 		      <option value="1">会津太郎</option>
@@ -53,22 +56,51 @@
 		    </select>
 		    <label>東</label>
 		  </div>
+		  <!--select plus or minus-->
+		  <div class="col s3 input-field">
+		    <select>
+		      <option value="" disabled selected>plus or minus</option>
+		      <option value="Plus">+</option>
+		      <option value="Minus">-</option>
+		    </select>
+		  </div>
+		  <!--input score-->
+		  <div class="col s4 input-field">
+		    <input id="input-score1" type="number" step="0.1" class="validate">
+		    <label for="input-score1">Input Score</label>
+		  </div>
+		</div>
+	    	
+		<div class="row">
+		  <div class="col s5 input-field">
+		    <i class="material-icons prefix">account_circle</i>
+		    <select>
+		      <option value="" disabled selected>Choose your name</option>
+		      <option value="1">会津太郎</option>
+		      <option value="2">会津花子</option>
+		      <option value="3">若松次郎</option>
+		      <option value="3">若松花代</option>
+		    </select>
+		    <label>南</label>
+		  </div>
+		  
+		  <div class="col s3 input-field">
+		    <select>
+		      <option value="" disabled selected>plus or minus</option>
+		      <option value="Plus">+</option>
+		      <option value="Minus">-</option>
+		    </select>
+		  </div>
 		  
 		  <div class="col s4 input-field">
-		    <div class="pm-btn">
-		      <!-- Dropdown Trigger -->
-		      <div><a class='dropdown-button btn pink accent-2' href='#' data-activates='dropdown1'>+</a></div>
-		      <!-- Dropdown Structure -->
-		      <ul id='dropdown1' class='dropdown-content'>
-			<li><a href="#!"><i class="material-icons pink-text text-accent-2">add</i></a></li>
-			<li><a href="#!"><i class="material-icons pink-text text-accent-2">remove</i></a></li>
-		      </ul>
-		    </div>
+		    <input id="input-score2" type="number" step="0.1" class="validate">
+		    <label for="input-score2">Input Score</label>
 		  </div>
 		</div>
-	    	
+	   	
 		<div class="row">
-		  <div class="col s4 input-field">
+		  <div class="col s5 input-field">
+		    <i class="material-icons prefix">account_circle</i>
 		    <select>
 		      <option value="" disabled selected>Choose your name</option>
 		      <option value="1">会津太郎</option>
@@ -76,39 +108,24 @@
 		      <option value="3">若松次郎</option>
 		      <option value="3">若松花代</option>
 		    </select>
-		    <label class="active" for="st_name">南</label>
+		    <label>西</label>
 		  </div>
-		  <div class="col s4 input-field">
-		    <div class="pm-btn">
-		      <div><a class='dropdown-button btn pink accent-2' href='#' data-activates='dropdown1'>+</a></div>
-		      <!-- Dropdown Structure -->
-		      <ul id='dropdown1' class='dropdown-content'>
-			<li><a href="#!"><i class="material-icons pink-text text-accent-2">add</i></a></li>
-			<li><a href="#!"><i class="material-icons pink-text text-accent-2">remove</i></a></li>
-		      </ul>
-		    </div>
-		    </div>
-		  </div>
-		</div>
-	    	
-		<div class="row">
-		  <div class="col s4 input-field">
+		  <div class="col s3 input-field">
 		    <select>
-		      <option value="" disabled selected>Choose your name</option>
-		      <option value="1">会津太郎</option>
-		      <option value="2">会津花子</option>
-		      <option value="3">若松次郎</option>
-		      <option value="3">若松花代</option>
+		      <option value="" disabled selected>plus or minus</option>
+		      <option value="Plus">+</option>
+		      <option value="Minus">-</option>
 		    </select>
-		    <label class="active" for="st_name">西</label>
 		  </div>
 		  <div class="col s4 input-field">
-		    
+		    <input id="input-score3" type="number" step="0.1" class="validate">
+		    <label for="input-score3">Input Score</label>
 		  </div>
 		</div>
 		
 		<div class="row">
-		  <div class="col s4 input-field">
+		  <div class="col s5 input-field">
+		    <i class="material-icons prefix">account_circle</i>
 		    <select>
 		      <option value="" disabled selected>Choose your name</option>
 		      <option value="1">会津太郎</option>
@@ -116,7 +133,18 @@
 		      <option value="3">若松次郎</option>
 		      <option value="3">若松花代</option>
 		    </select>
-		    <label class="active" for="st_name">北</label>
+		    <label>北</label>
+		  </div>
+		  <div class="col s3 input-field">
+		    <select>
+		      <option value="" disabled selected>plus or minus</option>
+		      <option value="Plus">+</option>
+		      <option value="Minus">-</option>
+		    </select>
+		  </div>
+		  <div class="col s4 input-field">
+		    <input id="input-score4" type="number" step="0.1" class="validate">
+		    <label for="input-score4">Input Score</label>
 		  </div>
 		</div>
 	      </form>
