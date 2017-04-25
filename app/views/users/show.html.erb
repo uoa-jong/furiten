@@ -13,6 +13,11 @@
 
 		<% @games.each do |g| %>
 
+			<% e_user = User.find_by_id(g.e_userid)%>
+			<% s_user = User.find_by_id(g.s_userid)%>
+			<% w_user = User.find_by_id(g.w_userid)%>
+			<% n_user = User.find_by_id(g.n_userid)%>
+			
 			対局日<%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%>
 			<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
 				<tr>
@@ -22,22 +27,26 @@
 				</tr>
 				<tr>
 					<td>東</td>
-					<td><%=g.e_userid%></td>
+					<%if e_user != nil%><td><%= e_user.user_name %></td>
+					<%else%><td>id = <%= g.e_userid %></td><%end%>
 					<td><%=g.e_score%></td>
 				</tr>
 				<tr>
 					<td>南</td>
-					<td><%=g.s_userid%></td>
+					<%if s_user != nil%><td><%= s_user.user_name %></td>
+					<%else%><td>id = <%= g.s_userid %></td><%end%>
 					<td><%=g.s_score%></td>
 				</tr>
 				<tr>
 					<td>西</td>
-					<td><%=g.w_userid%></td>
+					<%if w_user != nil%><td><%= w_user.user_name %></td>
+					<%else%><td>id = <%= g.w_userid %></td><%end%>
 					<td><%=g.w_score%></td>
 				</tr>
 				<tr>
 					<td>北</td>
-					<td><%=g.n_userid%></td>
+					<%if n_user != nil%><td><%= n_user.user_name %></td>
+					<%else%><td>id = <%= g.n_userid %></td><%end%>
 					<td><%=g.n_score%></td>
 				</tr>
 			</table>

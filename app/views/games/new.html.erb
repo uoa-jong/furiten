@@ -1,5 +1,10 @@
 <h1>結果を新規作成</h1>
 
+<%= link_to "mypage", user_path(session[:user_id])%>
+<%= link_to "全対局", games_path%>
+
+<hr>
+
 <% @game.errors.each do |attr, message| %>
 	<%= message%>
 <%end%>
@@ -23,7 +28,8 @@
 		<%=f.text_field :n_userid%> 
 		<%=f.label :n_score%>
 		<%=f.text_field :n_score%><li>
-		
+		<%#<%e_userid:+s_userid:+w_userid:+n_userid:  :sum%>
+
 		<%=f.submit "登録する"%>
 	<%end%>
 
