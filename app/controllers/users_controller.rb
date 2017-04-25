@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   	def show
   		@user = User.find(params[:id])
+  		@games = Game.where("?=e_userid",params[:id]).or(Game.where("?=s_userid",params[:id])).or(Game.where("?=w_userid",params[:id])).or(Game.where("?=n_userid",params[:id])).limit(10).order(game_date: :desc)
   	end
 
   	def destroy 

@@ -1,5 +1,4 @@
- <h1> Sessions#new </h1>
- <p> Find me in app/views/sessions/new.html.erb</p>
+ <h1> ログイン </h1>
  
  	<% @user.errors.each do |attr, message| %>
 			<%= message%>
@@ -15,5 +14,6 @@
    		<%= f.password_field :password %>
    		<%= f.submit "login" %>
   	<%end%>
+  	<br>
 
   	<%= link_to "ユーザー登録", new_user_path%>

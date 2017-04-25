@@ -1,0 +1,29 @@
+<h1>結果を新規作成</h1>
+
+<% @game.errors.each do |attr, message| %>
+	<%= message%>
+<%end%>
+
+<%=form_for @game, url: games_path, method: :post do |f|%>
+		<li>対局日<%=f.label :game_date%>
+		<%=f.text_field :game_date%></li>
+		<li>東<%= f.label :e_userid%>
+		<%=f.text_field :e_userid%> 
+		<%=f.label :e_score%>
+		<%=f.text_field :e_score%></li>
+		<li>南<%= f.label :s_userid%>
+		<%=f.text_field :s_userid%> 
+		<%=f.label :s_score%>
+		<%=f.text_field :s_score%></li>
+		<li>西<%= f.label :w_userid%>
+		<%=f.text_field :w_userid%> 
+		<%=f.label :w_score%>
+		<%=f.text_field :w_score%></li>
+		<li>北<%= f.label :n_userid%>
+		<%=f.text_field :n_userid%> 
+		<%=f.label :n_score%>
+		<%=f.text_field :n_score%><li>
+		
+		<%=f.submit "登録する"%>
+	<%end%>
+

@@ -1,16 +1,9 @@
-<% if notice %>
-    <alert> <%= notice%> </alert>
-<%end%>
+<h1>対局一覧</h1>
 
-<h1><%= @user.user_name%>のmypage</h1>
-
-<%= link_to "[ログアウト]",session_path(@user), method: :delete, data: { confirm: "本当にログアウトしますか?" }%>
-<%= link_to "管理者画面", sessions_path%>
-<%= link_to "対局追加", new_game_path%>
-<%= link_to "全対局", games_path%>
-
+<%=link_to "新規追加", new_game_path%>
+<%=link_to "mypage", user_path(session[:user_id])%>
 <hr>
-
+	<ul>
 		<% @games.each do |g| %>
 
 			対局日<%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%>
@@ -42,3 +35,5 @@
 				</tr>
 			</table>
 		<%end%>
+	</ul>
+</hr>
