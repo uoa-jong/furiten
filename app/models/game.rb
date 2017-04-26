@@ -11,6 +11,6 @@ class Game < ApplicationRecord
 	validates :n_userid, presence: true
 	validates :n_score, presence: true
 
-	#validates :sum, numericality:{equal_to: 0}
+	#validates params[:e_score]+params[:s_score]+params[:w_score]+params[:n_score], numericality:{equal_to: 0}
 
 end

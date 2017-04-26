@@ -2,6 +2,8 @@
 
 <%=link_to "新規追加", new_game_path%>
 <%=link_to "mypage", user_path(session[:user_id])%>
+<%=link_to "ランキング", ranks_path%>
+
 <hr>
 	<ul>
 		<% @games.each do |g| %>

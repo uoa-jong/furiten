@@ -28,8 +28,10 @@
 		<%=f.text_field :n_userid%> 
 		<%=f.label :n_score%>
 		<%=f.text_field :n_score%><li>
-		<%#<%e_userid:+s_userid:+w_userid:+n_userid:  :sum%>
-
+		
+		<%if(params[:e_score] != nil && params[:s_score]!=nil && params[:w_score] !=nil && params[:n_score] != nil)%>
+			<% sum = params[:e_score]+params[:s_score]+params[:w_score]+params[:n_score]  %>
+		<%end%>
 		<%=f.submit "登録する"%>
 	<%end%>
 

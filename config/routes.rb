@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :sessions
 
+  resources :ranks, only: [:index,:create]
+
    root to: "sessions#new"
 end
