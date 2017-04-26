@@ -15,15 +15,23 @@
     </head>
 
     <body>
-      <nav id="navigation">
+      <nav class="nav-extended">
 	<div class="nav-wrapper">
-	  <div id="logo"><a href="#" class="brand-logo">Logo</a></div>
+	  <a href="#" class="brand-logo">Logo</a>
+	  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 	  <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#">管理者用</a></li>
             <li><a href="#">対局記録</a></li>
             <li><a href="#">記録一覧</a></li>
-	    <li><a href="#">マイページ</a></li>
 	    <li><a href="#">ランキング</a></li>
+	    <li><a href="#">マイページ</a></li>
+	  </ul>
+	  <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">管理者用</a></li>
+            <li><a href="#">対局記録</a></li>
+            <li><a href="#">記録一覧</a></li>
+	    <li><a href="#">ランキング</a></li>
+	    <li><a href="#">マイページ</a></li>
 	  </ul>
 	</div>
       </nav>
@@ -31,24 +39,24 @@
       <div class="section">
 	<div class="container">
 	  <div class="row">
-	    <div class="col s8 offset-s2">
+	    <div class="col s12">
 	      <blockquote><p>対局記録</p></blockquote>
 	    </div>
 	    <!--datepicker-->
-	    <div class="col s8 offset-s2">
+	    <div class="col s12">
 	      <label for="game-date" class="active">対局日</label>
 	      <input id="game-date" type="date" class="datepicker">
 	    </div>
 	    <!--成績入力-->
 	    <div class="row">
-	      <form class="col s8 offset-s2">
+	      <form class="col s12">
 		<div class="row">
 		  
 		  <!--select name-->
-		  <div class="col s5 input-field">
+		  <div class="col s5 m5 input-field">
 		    <i class="material-icons prefix">account_circle</i>
 		    <select>
-		      <option value="" disabled selected>Choose your name</option>
+		      <option value="" disabled selected>Name</option>
 		      <option value="1">会津太郎</option>
 		      <option value="2">会津花子</option>
 		      <option value="3">若松次郎</option>
@@ -57,17 +65,17 @@
 		    <label>東</label>
 		  </div>
 		  <!--select plus or minus-->
-		  <div class="col s3 input-field">
+		  <div class="col s3 m3 input-field">
 		    <select>
-		      <option value="" disabled selected>plus or minus</option>
-		      <option value="Plus">+</option>
-		      <option value="Minus">-</option>
+		      <option value="" disabled selected>±</option>
+		      <option value="Plus">＋</option>
+		      <option value="Minus">▲</option>
 		    </select>
 		  </div>
 		  <!--input score-->
-		  <div class="col s4 input-field">
+		  <div class="col s3 m3 input-field">
 		    <input id="input-score1" type="number" step="0.1" class="validate">
-		    <label for="input-score1">Input Score</label>
+		    <label for="input-score1">Score</label>
 		  </div>
 		</div>
 	    	
@@ -75,7 +83,7 @@
 		  <div class="col s5 input-field">
 		    <i class="material-icons prefix">account_circle</i>
 		    <select>
-		      <option value="" disabled selected>Choose your name</option>
+		      <option value="" disabled selected>Name</option>
 		      <option value="1">会津太郎</option>
 		      <option value="2">会津花子</option>
 		      <option value="3">若松次郎</option>
@@ -86,15 +94,15 @@
 		  
 		  <div class="col s3 input-field">
 		    <select>
-		      <option value="" disabled selected>plus or minus</option>
-		      <option value="Plus">+</option>
-		      <option value="Minus">-</option>
+		      <option value="" disabled selected>±</option>
+		      <option value="Plus">＋</option>
+		      <option value="Minus">▲</option>
 		    </select>
 		  </div>
 		  
-		  <div class="col s4 input-field">
+		  <div class="col s3 input-field">
 		    <input id="input-score2" type="number" step="0.1" class="validate">
-		    <label for="input-score2">Input Score</label>
+		    <label for="input-score2">Score</label>
 		  </div>
 		</div>
 	   	
@@ -102,7 +110,7 @@
 		  <div class="col s5 input-field">
 		    <i class="material-icons prefix">account_circle</i>
 		    <select>
-		      <option value="" disabled selected>Choose your name</option>
+		      <option value="" disabled selected>Name</option>
 		      <option value="1">会津太郎</option>
 		      <option value="2">会津花子</option>
 		      <option value="3">若松次郎</option>
@@ -112,14 +120,14 @@
 		  </div>
 		  <div class="col s3 input-field">
 		    <select>
-		      <option value="" disabled selected>plus or minus</option>
-		      <option value="Plus">+</option>
-		      <option value="Minus">-</option>
+		      <option value="" disabled selected>±</option>
+		      <option value="Plus">＋</option>
+		      <option value="Minus">▲</option>
 		    </select>
 		  </div>
-		  <div class="col s4 input-field">
+		  <div class="col s3 input-field">
 		    <input id="input-score3" type="number" step="0.1" class="validate">
-		    <label for="input-score3">Input Score</label>
+		    <label for="input-score3">Score</label>
 		  </div>
 		</div>
 		
@@ -127,7 +135,7 @@
 		  <div class="col s5 input-field">
 		    <i class="material-icons prefix">account_circle</i>
 		    <select>
-		      <option value="" disabled selected>Choose your name</option>
+		      <option value="" disabled selected>Name</option>
 		      <option value="1">会津太郎</option>
 		      <option value="2">会津花子</option>
 		      <option value="3">若松次郎</option>
@@ -137,25 +145,50 @@
 		  </div>
 		  <div class="col s3 input-field">
 		    <select>
-		      <option value="" disabled selected>plus or minus</option>
-		      <option value="Plus">+</option>
-		      <option value="Minus">-</option>
+		      <option value="" disabled selected>±</option>
+		      <option value="Plus">＋</option>
+		      <option value="Minus">▲</option>
 		    </select>
 		  </div>
-		  <div class="col s4 input-field">
+		  <div class="col s3 input-field">
 		    <input id="input-score4" type="number" step="0.1" class="validate">
-		    <label for="input-score4">Input Score</label>
+		    <label for="input-score4">Score</label>
 		  </div>
+		</div>
+	   	
+		<!--total-score-->
+		<div class="col s12">
+		  <div class="col s3 input-field right">
+		    <input id="total-score" type="number" class="validate" value="0" disabled>
+		    <label for="total-score">Total Score</label>
+		  </div>
+		</div>
+		
+		<!--reset and submit-->
+		<!--submit-button-->
+		<div class="col s12">
+		  <button class="btn waves-effect waves-light right" type="submit" name="action">
+		    submit
+		    <i class="material-icons right">send</i>
+		  </button>
+		</div>
+		<!--reset-button-->
+		<div class="col s12">
+		  <button class="btn waves-effect waves-light right red lighten-2" id="reset-btn">
+		    reset
+		    <i class="material-icons right">delete</i>
+		  </button>
 		</div>
 	      </form>
 	    </div>
 	  </div>
 	</div>
-	
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script type="text/javascript" src="js/style.js"></script>
+      </div>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/style.js"></script>
     </body>
   </html>
+  
   
