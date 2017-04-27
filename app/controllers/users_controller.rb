@@ -4,9 +4,7 @@ class UsersController < ApplicationController
   	end
 
   	def create
-  		@user = User.new(params_user)
-    	email = params_user[:email]
-    	password  = params_user[:password]
+  		@user = User.create_normal_user(params_user) 
 
   		if @user.save
   			#login 処理
@@ -20,7 +18,7 @@ class UsersController < ApplicationController
 
   	def show
   		@user = User.find(params[:id])
-  		@games = Game.where("?=e_userid",params[:id]).or(Game.where("?=s_userid",params[:id])).or(Game.where("?=w_userid",params[:id])).or(Game.where("?=n_userid",params[:id])).limit(10).order(game_date: :desc)
+  		@games = Game.where("?=e_userid",params[:id]).or(Game.where("?=s_userid",params[:id])).or(Game.where("?=w_userid",params[:id])).or(Game.where("?=n_userid",params[:id])).page(params[:page]).order(game_date: :desc)
   	end
 
   	def destroy 

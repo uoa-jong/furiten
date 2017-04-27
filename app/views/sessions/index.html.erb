@@ -1,12 +1,18 @@
 <h1>ユーザー管理</h1>
+<%=link_to "mypage", user_path(session[:user_id])%>
 
 <hr>
 	<ul>
 		<% @users.each do |r| %>
-
-			<li>
-					<%= r.user_name%> (<%= r.student_id%>)   <%=link_to "[削除]", user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" }%>
-			</li>
+			<%= form_tag(session_path(r.id), :method => :put) do%>
+				<li>
+					<%= r.user_name%> (<%= r.student_id%>)   
+					<%=link_to "[削除]", user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" }%>
+					<%= select_tag :role, options_from_collection_for_select(@roles, :id, :role_name, r.role_id)%>
+					<%= hidden_field_tag :user_id, r.id%>
+				<%= submit_tag "変更"%>
+				</li>
+			<%end%>
 		<%end%>
 	</ul>
 </hr>

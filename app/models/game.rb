@@ -10,7 +10,16 @@ class Game < ApplicationRecord
 	validates :w_score, presence: true
 	validates :n_userid, presence: true
 	validates :n_score, presence: true
+	validate :check_total_score_equals_0
+
+
 
 	#validates params[:e_score]+params[:s_score]+params[:w_score]+params[:n_score], numericality:{equal_to: 0}
 
+	def check_total_score_equals_0 
+		total_score = [e_score, s_score, w_score, n_score].reject{|i| i.nil? }.inject(:+)
+		if total_score != 0 
+			errors.add(:base, "total scores != 0")
+		end
+	end
 end

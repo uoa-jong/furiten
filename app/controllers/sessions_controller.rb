@@ -6,7 +6,16 @@ class SessionsController < ApplicationController
 
 	def index
 		@users = User.all
+    @roles = Role.all
+
 	end
+
+  def update
+    user = User.find(params[:user_id])
+    user.role_id = params[:role]
+    user.save
+    redirect_to sessions_path
+  end
 
 	def create
   		user = User.find_by(student_id: params_user[:student_id])

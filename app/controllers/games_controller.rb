@@ -8,12 +8,12 @@ class GamesController < ApplicationController
 		if @game.save
 			redirect_to games_path
 		else 
-			redirect_to new_game_path
+			render :new
 		end
 	end
 
 	def index
-		@games = Game.all.limit(10).order(game_date: :desc)
+		@games = Game.all.page(params[:page]).order(game_date: :desc)
 	end
 
 

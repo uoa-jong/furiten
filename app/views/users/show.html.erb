@@ -4,7 +4,11 @@
 
 <h1><%= @user.user_name%>のmypage</h1>
 
-<%= link_to "[ログアウト]",session_path(@user), method: :delete, data: { confirm: "本当にログアウトしますか?" }%>
+<%if session[:user_id] != nil%>
+	<%= link_to "[ログアウト]",session_path(@user), method: :delete, data: { confirm: "本当にログアウトしますか?" }%>
+<%else%>
+	<%= link_to "[ログイン]",new_session_path%>
+<%end%>
 <%= link_to "管理者画面", sessions_path%>
 <%= link_to "対局追加", new_game_path%>
 <%= link_to "全対局", games_path%>
@@ -51,3 +55,4 @@
 				</tr>
 			</table>
 		<%end%>
+		<%= paginate(@games) %>

@@ -1,18 +1,18 @@
 <h1>ランキング</h1>
+<p><%= @start_time.try(:strftime, "%Y/%m/%d").to_s%> ~ <%= @end_time.try(:strftime, "%Y/%m/%d").to_s%>のランキング</p>
 <%=link_to "全対局",games_path%>
 <hr>
-<%=form_tag(ranks_path) do %>
+<%=form_tag(ranks_path, :method => :get) do %>
 	<p>対局日 開始
-	<%=	text_field :start_t,:start_time%>~
+	<%=	text_field_tag :start_time, @start_time.try(:strftime, "%Y/%m/%d") %>~
 	終了
-	<%=	text_field :end_t,:end_time%>
-	<%=submit_tag( "検索する")%>
+	<%=	text_field_tag :end_time, @end_time.try(:strftime, "%Y/%m/%d")%>
+	<%=submit_tag("検索する")%>
 	</p>
 <hr>
 
 
 	<% @users.each do |u| %>
-
 			<li>
 					<%= u.user_name%>/<%= u.total_score%>/<%= u.game_count%>
 			</li>

@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426154701) do
+ActiveRecord::Schema.define(version: 20170427142553) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "e_userid"
-    t.float    "e_score"
+    t.decimal  "e_score",    default: "0.0", null: false
     t.integer  "s_userid"
-    t.float    "s_score"
+    t.decimal  "s_score",    default: "0.0", null: false
     t.integer  "w_userid"
-    t.float    "w_score"
+    t.decimal  "w_score",    default: "0.0", null: false
     t.integer  "n_userid"
-    t.float    "n_score"
+    t.decimal  "n_score",    default: "0.0", null: false
     t.time     "add_time"
     t.datetime "game_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20170426154701) do
     t.string   "password_digest"
     t.integer  "role_id"
     t.time     "add_user"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.float    "total_score"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.decimal  "total_score",     default: "0.0", null: false
     t.integer  "game_count"
   end
 

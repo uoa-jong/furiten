@@ -6,6 +6,10 @@ class User < ApplicationRecord
    validates :password, confirmation: true,presence: true, length: { in: 6..24 }, if: :password
    validates :password_confirmation,presence: true, presence: true, if: :password 
 
-
+   def self.create_normal_user(params)
+   		user = self.new(params)
+   		user.role_id = Role.find_by(role_name: "一般").id
+   		user
+   end
 
 end

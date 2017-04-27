@@ -5,11 +5,13 @@
 
 <hr>
 
-<% @game.errors.each do |attr, message| %>
-	<%= message%>
-<%end%>
-
 <%=form_for @game, url: games_path, method: :post do |f|%>
+	
+	
+		<% @game.errors.each do |attr, message| %>
+			<li><%= message%></li>
+		<%end%>
+
 		<li>対局日<%=f.label :game_date%>
 		<%=f.text_field :game_date%></li>
 		<li>東<%= f.label :e_userid%>
@@ -29,9 +31,7 @@
 		<%=f.label :n_score%>
 		<%=f.text_field :n_score%><li>
 		
-		<%if(params[:e_score] != nil && params[:s_score]!=nil && params[:w_score] !=nil && params[:n_score] != nil)%>
-			<% sum = params[:e_score]+params[:s_score]+params[:w_score]+params[:n_score]  %>
-		<%end%>
+
 		<%=f.submit "登録する"%>
 	<%end%>
 

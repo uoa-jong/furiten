@@ -1,8 +1,9 @@
 class RanksController < ApplicationController
 
 	def index
-		#@game = Game.where("? <= game_date && ? >= game_date",params[:start_time],params[:end_time])
-		@game =Game.all
+		@start_time =  params[:start_time].nil? ? (Time.now.prev_year) : params[:start_time].to_datetime
+		@end_time =  params[:end_time].nil? ? (Time.now) : params[:end_time].to_datetime
+		@game = Game.where(game_date: [@start_time..@end_time])
 		@users = User.all
 
 		@users.each do |u|
