@@ -26,7 +26,6 @@
 	    <li><a href="#">ランキング</a></li>
 	    <li><a href="#">マイページ</a></li>
 	  </ul>
-
 	</div>
       </nav>
 	  <ul class="side-nav" id="mobile-demo">
@@ -71,8 +70,8 @@
 		  <div class="col s3 m3 input-field">
 		    <select>
 		      <option value="" disabled selected>±</option>
-		      <option value="Plus">＋</option>
-		      <option value="Minus">▲</option>
+		      <option value="1">＋</option>
+		      <option value="-1">▲</option>
 		    </select>
 		  </div>
 		  <!--input score-->
@@ -98,8 +97,8 @@
 		  <div class="col s3 input-field">
 		    <select>
 		      <option value="" disabled selected>±</option>
-		      <option value="Plus">＋</option>
-		      <option value="Minus">▲</option>
+		      <option value="1">＋</option>
+		      <option value="-1">▲</option>
 		    </select>
 		  </div>
 		  
@@ -124,8 +123,8 @@
 		  <div class="col s3 input-field">
 		    <select>
 		      <option value="" disabled selected>±</option>
-		      <option value="Plus">＋</option>
-		      <option value="Minus">▲</option>
+		      <option value="1">＋</option>
+		      <option value="-1">▲</option>
 		    </select>
 		  </div>
 		  <div class="col s3 input-field">
@@ -149,8 +148,8 @@
 		  <div class="col s3 input-field">
 		    <select>
 		      <option value="" disabled selected>±</option>
-		      <option value="Plus">＋</option>
-		      <option value="Minus">▲</option>
+		      <option value="1">＋</option>
+		      <option value="-1">▲</option>
 		    </select>
 		  </div>
 		  <div class="col s3 input-field">
@@ -167,7 +166,6 @@
 		  </div>
 		</div>
 		
-		<!--reset and submit-->
 		<!--submit-button-->
 		<div class="col s12">
 		  <button class="btn waves-effect waves-light right" type="submit" name="action">
@@ -175,14 +173,22 @@
 		    <i class="material-icons right">send</i>
 		  </button>
 		</div>
-		<!--reset-button-->
-		<div class="col s12">
-		  <button class="btn waves-effect waves-light right red lighten-2" id="reset-btn">
-		    reset
-		    <i class="material-icons right">delete</i>
-		  </button>
-		</div>
 	      </form>
+	      
+	      <!--FAB menu-->
+	      <div style="position: relative; height: 850px;">
+		<div class="fixed-action-btn horizontal click-to-toggle" style="position: absolute; right: 24px;">
+		  <a class="btn-floating btn-large red accent-2">
+		    <i class="large material-icons">add</i>
+		  </a>
+		  <ul>
+		    <li><a href="#1" class="btn-floating red"><i class="material-icons">delete</i></a></li>
+		    <li><a href="#2" class="btn-floating yellow darken-1"><i class="material-icons">perm_identity</i></a></li>
+		    <li><a href="#3" class="btn-floating green"><i class="material-icons">view_list</i></a></li>
+		  </ul>
+		</div>
+	      </div>
+
 	    </div>
 	  </div>
 	</div>
