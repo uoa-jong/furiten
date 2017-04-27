@@ -10,3 +10,7 @@ $(document).ready(function() {
 /*$(document).ready(function() {
     $("option").css("color","red");
 });*/
+
+$( document ).ready(function(){
+    $(".button-collapse").sideNav();
+})
