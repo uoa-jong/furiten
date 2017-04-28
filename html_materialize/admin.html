@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+  <html lang="ja">
+    <head>
+      <meta charset="utf-8"></meta>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--title-->
+      <title>furiten_proto</title>
+    </head>
+
+    <header>
+      <nav class="nav-fixed">
+		<div class="nav-wrapper">
+		  <a href="#" class="brand-logo">furiten</a>
+		  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		  <ul id="nav-mobile" class="right hide-on-med-and-down">
+	            <li><a href="#">管理者用</a></li>
+	            <li><a href="#">対局記録</a></li>
+	            <li><a href="#">記録一覧</a></li>
+		    <li><a href="#">ランキング</a></li>
+		    <li><a href="#">マイページ</a></li>
+		  </ul>
+		</div>
+      </nav>
+	  <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">管理者用</a></li>
+            <li><a href="#">対局記録</a></li>
+            <li><a href="#">記録一覧</a></li>
+	    <li><a href="#">ランキング</a></li>
+	    <li><a href="#">マイページ</a></li>
+	  </ul>
+	</header>
+	
+	<body>
+      <div class="section">
+		<div class="container">
+	  		<div class="row">
+	    		<div class="col s12">
+	      			<blockquote><p>ユーザー管理</p></blockquote>
+	    　		</div>
+	    
+	    		<div class="row">
+	      			<form class="col s12">
+						<div class="row">
+		  					<div class="col s4">
+							    <i class="material-icons prefix">account_circle</i>
+									渡邉陸斗 (s1220226)
+							</div>
+							<div class="col s1">
+								<a data-confirm="本当に削除しますか?" rel="nofollow" data-method="delete" href="/users/1">[削除]</a>
+				    		</div>
+				    		<div class="col s5">
+				    			<select>
+				      				<option value="1" selected="selected">管理者</option>
+								    <option value="2">一般</option>
+								</select>
+							</div>
+							<div class="col s2">
+								<input type="submit" name="commit" value="変更" data-disable-with="変更" class="waves-effect waves-light btn orange" />
+							</div>
+	    				</div>
+							
+						<div class="row">
+				  			<div class="col s4">
+				    			<i class="material-icons prefix">account_circle</i>
+				    				堀真哲 (s1220222)
+				    		</div>
+				    		<div class="col s1">
+								<a data-confirm="本当に削除しますか?" rel="nofollow" data-method="delete" href="/users/2">[削除]</a>
+							</div>
+				    		<div class="col s5">	
+				    			<select>
+				      				<option value="1">管理者</option>
+								    <option value="2" selected="selected">一般</option>
+								</select>
+							</div>
+							<div class="col s2">
+								<input type="submit" name="commit" value="変更" data-disable-with="変更" class="waves-effect waves-light btn orange" />	
+				 			</div>
+						</div>	
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/style.js"></script>
+    </body>
+</html>
