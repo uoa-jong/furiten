@@ -1,13 +1,16 @@
  <h1> ログイン </h1>
  
- 	<% @user.errors.each do |attr, message| %>
-			<%= message%>
-	<%end%>
-	<% if notice %>
+ 		<% if notice %>
        		<alert> <%= notice%> </alert>
        	<%end%>
 
  	<%= form_for @user, url: sessions_path, method: :post do |f| %>
+   		
+   		<% @user.errors.each do |attr, message| %>
+			<li><%= message%></li>
+		<%end%>
+
+
    		<%= f.label :student_id %>
    		<%= f.text_field :student_id %>
    		<%= f.label :password%>

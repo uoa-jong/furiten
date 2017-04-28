@@ -15,19 +15,19 @@
 		<li>対局日<%=f.label :game_date%>
 		<%=f.text_field :game_date%></li>
 		<li>東<%= f.label :e_userid%>
-		<%=f.text_field :e_userid%> 
+		<%= f.select :e_userid, @users.map{|t| [t.user_name, t.id]} %>
 		<%=f.label :e_score%>
 		<%=f.text_field :e_score%></li>
 		<li>南<%= f.label :s_userid%>
-		<%=f.text_field :s_userid%> 
+		<%= f.select :s_userid, @users.map{|t| [t.user_name, t.id]} %>
 		<%=f.label :s_score%>
 		<%=f.text_field :s_score%></li>
 		<li>西<%= f.label :w_userid%>
-		<%=f.text_field :w_userid%> 
+		<%= f.select :w_userid, @users.map{|t| [t.user_name, t.id]} %> 
 		<%=f.label :w_score%>
 		<%=f.text_field :w_score%></li>
 		<li>北<%= f.label :n_userid%>
-		<%=f.text_field :n_userid%> 
+		<%= f.select :n_userid, @users.map{|t| [t.user_name, t.id]} %> 
 		<%=f.label :n_score%>
 		<%=f.text_field :n_score%><li>
 		
