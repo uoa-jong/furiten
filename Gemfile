@@ -52,3 +52,5 @@ gem 'sorcery'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'kaminari'
+
+gem "carrierwave"

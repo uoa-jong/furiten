@@ -14,6 +14,7 @@
 			<% n_user = User.find_by_id(g.n_userid)%>
 
 			対局日<%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%>
+			<%=link_to "編集",edit_game_path(g)%>
 			<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
 				<tr>
 					<th></th>

@@ -30,9 +30,23 @@ class UsersController < ApplicationController
   		end
   	end
 
+    def edit
+      @user = User.find(params[:id])
+    end
+
+    def update
+      @user = User.find(params[:id])
+      if @user.update_attributes(params_user)
+        redirect_to user_path(params[:id])
+      else
+        render :edit
+      end
+    end
+
+
 private
 	def params_user
-		params.require(:user).permit(:student_id,:password,:user_name,:password_confirmation)
+		params.require(:user).permit(:student_id,:password,:user_name,:password_confirmation,:image,:image_cache)
 	end
 
 
