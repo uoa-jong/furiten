@@ -1,24 +1,69 @@
-<h1>Sign in</h1>
+<div class="section"></div>
+    <main>
+      <center>
+
+        <blockquote><p class="orange-text text-darken-2">Sign up for Uoa-jong</p></blockquote>
+        <div class="section"></div>
+
+        <div class="container">
+          <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+           <%=form_for @user, url: users_path, method: :post,class: "col s12" do |f|%>
+              <div class='row'>
+                <div class='col s12'>
+                	<% if @user.errors.any? %>
+						<% @user.errors.each do |attr, message| %>
+							<li class= "red-text text-darken-3"><%= message%></li>
+						<%end%>
+					<%end%>
+                </div>
+              </div>
+
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <i class="material-icons prefix">account_circle</i>
+                  <%= f.label :student_id,"Enter your student ID" %>
+                  <%= f.text_field :student_id ,class: 'validate'%>
+                </div>
+              </div>
+
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <i class="material-icons prefix">perm_identity</i>
+                  <%=f.label :user_name, "Enter user name"%>
+                  <%=f.text_field :user_name, class: "validate"%>
+                </div>
+              </div>
+
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <i class="material-icons prefix">lock</i>
+                  <%=f.label :password, "Enter your password"%>
+                  <%=f.password_field :password, class: "validate"%>
+                </div>
+              </div>
+
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <i class="material-icons prefix">lock_outline</i>
+                  <%=f.label :password_confirmation, "Enter password again"%>
+                  <%=f.password_field :password_confirmation, class: "validate" %>
+                </div>
+              </div>
 
 
-	<%=form_for @user, url: users_path, method: :post do |f|%>
+              </br>
+              <center>
+                <div class='row'>
+                  <%=f.submit "Sign Up", class: 'col s12 btn btn-large waves-effect orange darken-2'%>
+                </div>
+              </center>
+            <%end%>
+          </div>
+        </div>
+        <p class= "waves-effect waves-light btn lime"><%= link_to "Login",new_session_path%></p>
+      </center>
 
-		<% if @user.errors.any? %>
-			<% @user.errors.each do |attr, message| %>
-					<li><%= message%></li>
-			<%end%>
-		<%end%>
-	
-		<%= f.label :student_id, "学籍番号 : s1990999", class: "control-label"%>
-		<%=f.text_field :student_id, class: "form-control"%>
-		<%=f.label :user_name, "会津　太郎", class: "control-label"%>
-		<%=f.text_field :user_name, class: "form-control"%>
-		<%=f.label :password, "パスワード: 6文字以上", class: "control-label"%>
-		<%=f.password_field :password, class: "form-control"%>
-		<%=f.label :password_confirmation, "パスワード確認", class: "control-label"%>
-		<%=f.password_field :password_confirmation, class: "form-control" %>
-		<%=f.submit "登録する"%>
-	<%end%>
-
-	<br>
-	<%= link_to "Login",new_session_path%>
+      <div class="section"></div>
+      <div class="section"></div>
+</main>

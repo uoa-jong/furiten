@@ -1,28 +1,61 @@
-<h1>ユーザー情報編集</h1>
-
-
-	<%= form_for @user do |f|%>
-
-		<% if @user.errors.any? %>
-			<% @user.errors.each do |attr, message| %>
-					<%= message%>
-			<%end%>
-		<%end%>
-
-	<% if @user.image? %>
-      <div class="thumbnail">
-        <%= image_tag @user.image.url,:size => "200x200" %>
-      </div>
-    <% end %><br>
-    <%= f.label :image %>
-    <%= f.file_field :image %><br>
-    <%= f.hidden_field :image_cache %>
-		<li><%=f.label :user_name, "会津　太郎", class: "control-label"%>
-		<%=f.text_field :user_name, class: "form-control"%></li>
-		<li><%=f.label :student_id, "s1220XXX", class: "control-label"%>
-		<%=f.text_field :student_id, class: "form-control"%></li>
-		<li><%=f.submit "変更する"%></li>
-	<%end%>
-
-	<br>
-	<%= link_to "MyPage",user_path(@user)%>
+<div class="section"></div>
+    
+    <div class="section"></div>
+    <div class="section">
+	    <div class="container">
+	    	<%=form_for @user do |f|%>
+	    		<div class="row">
+	    			<div class="col s12">
+	    				<blockquote><p class="orange-text text-darken-2">ユーザー情報を編集</p></blockquote>
+	    			</div>
+	    			<div class="col s10 offset-s1">
+	    				<% if @user.errors.any? %>
+							<%@user.errors.each do |attr, message| %>
+								<p class="red-text"><%= message%></p>
+							<%end%>
+						<%end%>
+	    			</div>
+	    			<div class="col s10 offset-s1">
+	    				<p class="grey-text">プロフィール画像を設定する</p>
+	    				<% if @user.image? %>
+        					<%= image_tag @user.image.url,:width => "40%",:height => "40%" %>
+    					<% end %>
+    					<p class="pink-text"><%= f.file_field :image %></p>
+    					<%= f.hidden_field :image_cache%>
+    					<div class="col s8">
+    						<p class="pink-text"><%=f.label :user_name,"学籍番号"%></p>
+    						<%=f.text_field :user_name ,class: "center"%>
+    					</div>
+    					<div class = "col s8 ">
+							<p class="pink-text"><%=f.label :student_id, "s1220XXX"%></p>
+							<%=f.text_field :student_id,class: "center"%>
+						</div>
+						<div class="row">
+							<div class="col s8">
+								<a><%=f.submit "変更する",class: "waves-effect waves-light btn orange"%></a>
+							</div>
+						<div>
+	    			</div>
+	    		</div>
+	    	<%end%>
+	    </div>
+	</div>
+	<!--FAB menu-->
+	<div class="fixed-action-btn horizontal click-to-toggle">
+		<a class="btn-floating btn-large red accent-2">
+			<i class="large material-icons">add</i>
+		</a>
+		<ul>
+			<%if session[:user_id] != nil%>
+				<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
+				<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
+				<%else%>
+					<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
+				<%end%>
+					<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+				</ul>
+			</div>	 
+</div>
+</div>
+    <div class="section"></div>
+    <div class="section"></div>

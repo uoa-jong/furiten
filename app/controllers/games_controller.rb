@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 	def new
 		@game = Game.new
 		@users = User.all
+		@time = Time.now
 	end
 
 	def create
@@ -41,6 +42,11 @@ class GamesController < ApplicationController
 		end
 	end
 
+	def destroy
+  		@game = Game.find(params[:id])
+    	@game.destroy
+    	redirect_to games_path, notice: "対局を一件削除しました。"
+	end
 
 
 

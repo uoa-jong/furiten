@@ -5,8 +5,8 @@ class User < ApplicationRecord
 
    validates :student_id, presence: {message: "学籍番号を入力してください"},
                            uniqueness: { case_sensitive: false },
-                           format: { with: /\A[a-z][a-z0-9]+\z/ ,message: "半角英数で入力してください"},
-                           length: { in: 8..9 , message: "入力文字数は8文字です" }
+                           format: { with: /\A[a-z][a-z0-9]+\z/ ,message: "学籍番号はsを含めた半角英数で入力してください"},
+                           length: { in: 8..9 , message: "学籍番号は入力文字数は8文字です" }
    
    validates :user_name, presence: {message: "ユーザー名を入力してください"},
                         length: { maximum: 15 }

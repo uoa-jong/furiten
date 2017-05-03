@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
   		@user = User.find(params[:id])
     	session[:user_id] = nil
     	redirect_to new_session_path, notice: "サインアウトしました"
-	end
+	  end
 
 	private
   		def params_user

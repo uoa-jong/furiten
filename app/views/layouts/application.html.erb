@@ -9,6 +9,41 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+ 
+  <%if request.path_info != new_session_path && request.path_info != new_user_path%>
+	  <header>
+	  	<nav class="nav-fixed">
+			<div class="nav-wrapper">
+		  		<a href="#" class="brand-logo">furiten</a>
+		  		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		  		<ul id="nav-mobile" class="right hide-on-med-and-down">
+	            	<li><%=link_to "対局一覧", games_path%></li>
+		    		<li><%=link_to "ランキング", ranks_path%></li>
+		    		<%if session[:user_id] != nil%>
+		    			<li><%=link_to "新規対局登録", new_game_path%></li>
+		    			<li><%=link_to "マイページ", user_path(session[:user_id])%></li>
+		    			<li><%=link_to "ユーザー管理", sessions_path%></li>
+		    			<li><%= link_to "ログアウト",session_path(session[:user_id]), method: :delete, data: { confirm: "本当にログアウトしますか?" }%></li>
+		    		<%else%>
+		    			<li><%=link_to "ログイン", new_session_path%></li>
+		    		<%end%>
+		  		</ul>
+			</div>
+	    </nav>
+		 	<ul class="side-nav" id="mobile-demo">
+	        		<li><%=link_to "対局一覧", games_path%></li>
+		    		<li><%=link_to "ランキング", ranks_path%></li>
+		    		<%if session[:user_id] != nil%>
+		    			<li><%=link_to "新規対局登録", new_game_path%></li>
+		    			<li><%=link_to "マイページ", user_path(session[:user_id])%></li>
+		    			<li><%=link_to "ユーザー管理", sessions_path%></li>
+		    			<li><%= link_to "ログアウト",session_path(session[:user_id]), method: :delete, data: { confirm: "本当にログアウトしますか?" }%></li>
+		    		<%else%>
+		    			<li><%=link_to "ログイン", new_session_path%></li>
+		    		<%end%>
+		  	</ul>
+	  </header>
+	<%end%>
 
   <body>
     <%= yield %>

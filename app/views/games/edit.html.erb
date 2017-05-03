@@ -1,47 +1,151 @@
-<h1>結果を編集</h1>
+<div class="section">
+	<div class="container">
+	  	<div class="row">
+	    	<div class="col s12">
+	      		<blockquote><p>対局記録</p></blockquote>
+	    	</div>
+	    	<!--成績入力-->
+	    	<div class="row">
+	      		<%=form_for @game, url: games_path, method: :post,class: "col s12" do |f|%>
+	      			<div class="col s12">
+	      				<% @game.errors.each do |attr, message| %>
+							<p class="red-text"><%= message%></p>
+						<%end%>
+	      			</div>
+	      			<!--datepicker-->
+			    	<div class="col s12">
+			      		<%=f.label :game_date,"対局日"%>
+						<%=f.text_field :game_date%></li>
+			      		<!--<input id="game-date" type="date" class="datepicker"> datepicker-->
+			    	</div>
+					<div class="row">
+			  
+			 		<!--select name-->
+				  		<div class="col s5 input-field">
+				    		<i class="material-icons prefix">account_circle</i>
+							<%= f.select :e_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+				    		<%= f.label :e_userid,"東"%>
+				  		</div>
+				  		<!--select plus or minus-->
+				  		<div class="col s3 input-field">
+							<%= f.select :e_pm, options_for_select([["+", 1], ["△", -1]])  %>
+							<%= f.label :e_pm,"±"%>
+				  		</div>
+				  		<!--input score-->
+				  		<div class="col s3  input-field">
+							<%=f.text_field :e_score,class: "validate"%>
+							<%=f.label :e_score,"東スコア"%>
+				  		</div>
+					</div>
+			    	
+					<div class="row">
+				  		<div class="col s5 input-field">
+				    		<i class="material-icons prefix">account_circle</i>
+							<%= f.select :s_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+							<%= f.label :s_userid,"南"%>
+				  		</div>
+				  
+				 		<div class="col s3 input-field">
+							<%= f.select :s_pm, options_for_select([["+", 1], ["△", -1]])  %>
+							<%= f.label :s_pm,"±"%>
+				  		</div>
+				  
+				  		<div class="col s3 input-field">
+							<%=f.text_field :s_score,class: "validate"%>
+							<%=f.label :s_score,"南スコア"%>
+				  		</div>
+					</div>
+			   	
+					<div class="row">
+				  		<div class="col s5 input-field">
+				    		<i class="material-icons prefix">account_circle</i>
+							<%= f.select :w_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+							<%= f.label :w_userid,"西"%>
+					    	
+					  	</div>
+					  	<div class="col s3 input-field">
+							<%= f.select :w_pm, options_for_select([["+", 1], ["△", -1]])  %>
+							<%= f.label :w_pm,"±"%>
+					  	</div>
+					  	<div class="col s3 input-field">
+							<%=f.text_field :w_score,class: "validate"%>
+							<%=f.label :w_score,"西スコア"%>
+						</div>
+					</div>
+				
+					<div class="row">
+				  		<div class="col s5 input-field">
+				    		<i class="material-icons prefix">account_circle</i>
+							<%= f.select :n_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+							<%= f.label :n_userid,"北"%>
+				  		</div>
+					  	<div class="col s3 input-field">
+							<%= f.select :n_pm, options_for_select([["+", 1], ["△", -1]])  %>
+							<%= f.label :n_pm,"±"%>
+					  	</div>
+					  	<div class="col s3 input-field">
+							<%=f.text_field :n_score,class: "validate"%>
+							<%=f.label :n_score,"北スコア"%>
+					  	</div>
+					</div>
+			   	
+				<!--total-score-->
+				
+				<!--<div class="col s12">
+				  <div class="col s3 input-field right">
+				    <input id="total-score" type="number" class="validate" value="0" disabled>
+				    <label for="total-score">Total Score</label>
+				  </div>
+				</div>
+				-->
+				
+				<!--submit-button-->
 
-<%if session[:user_id]!=nil%>
-	<%= link_to "mypage", user_path(session[:user_id])%>
-<%end%>
-<%= link_to "全対局", games_path%>
+					<div class="col s2 offset-s10">
+						
+						<%=f.submit "登録する", class: 'col s12 btn btn-large waves-effect orange darken-2 ' %>
+						
+						<%#"モーダル実装時のボタン"<i class="material-icons right">send</i>
+						<button data-target="modal1" class="btn waves-effect waves-light right" type="button" name="action">
+					    	submit
+					  	</button>%>
 
-<hr>
 
-<%=form_for @game do |f|%>
-	
-	
-		<% @game.errors.each do |attr, message| %>
-			<li><%= message%></li>
-		<%end%>
+					  	<!-- Modal Structure -->
+					  	<div id="modal1" class="modal">
+					    	<div class="modal-content">
+					      		<div class="modal-header">
+									<h6>こちらの内容でよろしいですか</h6>
+					      		</div>
+					      		<div class="modal-body">
+					      			<p>body</p>
+									
+					    		</div>
+					    	</div>
+					    	<div class="modal-footer">
+					      		<%=f.submit "登録する", class: "modal-action modal-close waves-effect waves-green btn-flat"%>
+					    	</div>
+					 	</div>
+					</div>
+				<%end%>
+				<div class="col s12"><br><br></div>
 
-		<li>対局日<%=f.label :game_date%>
-		<%=f.text_field :game_date%></li>
-		<li>東<%= f.label :e_userid%>
-		<%= f.select :e_userid, User.all.uniq.map{|t| [t.user_name, t.id]}%> 
-		<%= f.label "±"%>
-		<%= f.select :e_pm, options_for_select([["+", 1], ["△", -1]])  %> 
-		<%#<%=p params.as_json %>
-		<%=f.label :e_score%>
-		<%=f.text_field :e_score%></li>
-		<li>南<%= f.label :s_userid%>
-		<%= f.select :s_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
-		<%= f.label "±"%>
-		<%= f.select :s_pm, options_for_select([["+", 1], ["△", -1]])  %>
-		<%=f.label :s_score%>
-		<%=f.text_field :s_score%></li>
-		<li>西<%= f.label :w_userid%>
-		<%= f.select :w_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
-		<%= f.label "±"%>
-		<%= f.select :w_pm, options_for_select([["+", 1], ["△", -1]])  %>
-		<%=f.label :w_score%>
-		<%=f.text_field :w_score%></li>
-		<li>北<%= f.label :n_userid%>
-		<%= f.select :n_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %> 
-		<%= f.label "±"%>
-		<%= f.select :n_pm, options_for_select([["+", 1], ["△", -1]])  %>
-		<%=f.label :n_score%>
-		<%=f.text_field :n_score%><li>
-		
-
-		<%=f.submit "登録する"%>
-	<%end%>
+				<!--FAB menu-->
+				<div class="fixed-action-btn horizontal click-to-toggle">
+					<a class="btn-floating btn-large red accent-2">
+						<i class="large material-icons">add</i>
+					</a>
+					<ul>
+					  	<%if session[:user_id] != nil%>
+					  		<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
+					  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
+					  	<%else%>
+					  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
+					  	<%end%>
+					  	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+					</ul>
+				</div>	      
+			</div>
+		</div>
+	</div>
+</div>

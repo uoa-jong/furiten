@@ -18,4 +18,43 @@
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
 */
+
 @import "materialize";
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+body {
+  background: #fff3e0;
+}
+
+.input-field input[type=text]:focus + label,
+.input-field input[type=password]:focus + label {
+  color: #F5BCA9;
+}
+
+.input-field input[type=text]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 2px solid #FF8000;
+  box-shadow: none;
+}
+#navigation {
+    background: #ff6f00;
+}
+
+#navigation #logo {
+    width: 100px;
+    text-align: center;
+}
+
+blockquote {
+    color: #ffa000;
+    font-size: 40px;
+}
