@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+  <html lang="ja">
+    <head>
+      <meta charset="utf-8"></meta>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="css/style.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--title-->
+      <title>furiten_proto</title>
+    </head>
+
+    <header>
+      <nav class="nav-fixed">
+		<div class="nav-wrapper">
+		  <a href="#" class="brand-logo">furiten</a>
+		  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+		  <ul id="nav-mobile" class="right hide-on-med-and-down">
+	            <li><a href="#">管理者用</a></li>
+	            <li><a href="#">対局記録</a></li>
+	            <li><a href="#">記録一覧</a></li>
+		    <li><a href="#">ランキング</a></li>
+		    <li><a href="#">マイページ</a></li>
+		  </ul>
+		</div>
+      </nav>
+	  <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">管理者用</a></li>
+            <li><a href="#">対局記録</a></li>
+            <li><a href="#">記録一覧</a></li>
+	    <li><a href="#">ランキング</a></li>
+	    <li><a href="#">マイページ</a></li>
+	  </ul>
+	</header>
+	
+	<body>
+		<div class="section">
+			<div class="container">
+	    		<div class="row">
+	　　　　			<div class="col s12">
+	      				<blockquote><p>対局一覧</p></blockquote>
+	　　　　			</div>
+
+						<!--table generate-->
+					<center>
+						<div class="row">
+							<div class="col s6 offset-s2">
+								<p class="orange-text">対局日: 2017/05/03</p>
+							</div>
+								<ul>
+								  <li><a href="#1" class="btn-floating yellow darken-1 waves-effect waves-light left"><i class="material-icons">mode_edit</i></a>
+								  	<a href="#2" class="btn-floating red waves-effect waves-light left"><i class="material-icons">delete</i></a></li>
+								</ul>
+							<table class="highlight col s6 offset-s3 centered bordered">
+					        	<thead>
+					          		<tr>
+					          			<th></th>
+					              		<th>氏名(学籍番号)</th>
+					              		<th>スコア</th>
+					          		</tr>
+					        	</thead>
+
+					        	<tbody>
+					          		<tr>
+					            		<td >東</td>
+					            		<td>User1(s1220001)</td>
+					            		<td>-51.0</td>
+					          		</tr>
+					          		<tr>
+					            		<td>南</td>
+					            		<td>User2(s1220002)</td>
+					            		<td>26.7</td>
+					          		</tr>
+					          		<tr>
+					            		<td>西</td>
+					            		<td>User3(s1220003)</td>
+					            		<td>-10.4</td>
+					          		</tr>
+					          		<tr>
+					            		<td>北</td>
+					            		<td>User4(s1220004)</td>
+					            		<td>34.7</td>
+					          		</tr>
+					        	</tbody>
+					      </table>
+					  </div>
+					  <div class="row">
+							<div class="col s6 offset-s2">
+								<p class="orange-text">対局日: 2017/04/30</p>
+							</div>
+								<ul>
+								  <li><a href="#1" class="btn-floating yellow darken-1 waves-effect waves-light left"><i class="material-icons">mode_edit</i></a>
+								  	<a href="#2" class="btn-floating red waves-effect waves-light left"><i class="material-icons">delete</i></a></li>
+								</ul>
+							<table class="highlight col s6 offset-s3 centered bordered">
+					        	<thead>
+					          		<tr>
+					          			<th></th>
+					              		<th>氏名(学籍番号)</th>
+					              		<th>スコア</th>
+					          		</tr>
+					        	</thead>
+
+					        	<tbody>
+					          		<tr>
+					            		<td >東</td>
+					            		<td>User1(s1220001)</td>
+					            		<td>-10.0</td>
+					          		</tr>
+					          		<tr>
+					            		<td>南</td>
+					            		<td>User2(s1220002)</td>
+					            		<td>10.0</td>
+					          		</tr>
+					          		<tr>
+					            		<td>西</td>
+					            		<td>User3(s1220003)</td>
+					            		<td>-10.0</td>
+					          		</tr>
+					          		<tr>
+					            		<td>北</td>
+					            		<td>User4(s1220004)</td>
+					            		<td>10.0</td>
+					          		</tr>
+					        	</tbody>
+					      </table>
+					  </div>
+					</center>
+
+					<div>
+						<ul class="pagination center">
+					    	<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+					    	<li class="active"><a href="#!">1</a></li>
+					    	<li class="waves-effect"><a href="#!">2</a></li>
+						    <li class="waves-effect"><a href="#!">3</a></li>
+						    <li class="waves-effect"><a href="#!">4</a></li>
+						    <li class="waves-effect"><a href="#!">5</a></li>
+						    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+					 	</ul>
+					</div>
+	   			</div>
+			</div>
+		</div>
+
+
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/style.js"></script>
+    </body>
+</html>

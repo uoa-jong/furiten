@@ -17,9 +17,11 @@
     <%= f.label :image %>
     <%= f.file_field :image %><br>
     <%= f.hidden_field :image_cache %>
-		<%=f.label :user_name, "会津　太郎", class: "control-label"%>
-		<%=f.text_field :user_name, class: "form-control"%>
-		<%=f.submit "変更する"%>
+		<li><%=f.label :user_name, "会津　太郎", class: "control-label"%>
+		<%=f.text_field :user_name, class: "form-control"%></li>
+		<li><%=f.label :student_id, "s1220XXX", class: "control-label"%>
+		<%=f.text_field :student_id, class: "form-control"%></li>
+		<li><%=f.submit "変更する"%></li>
 	<%end%>
 
 	<br>

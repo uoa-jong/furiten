@@ -5,7 +5,7 @@
 
 		<% if @user.errors.any? %>
 			<% @user.errors.each do |attr, message| %>
-					<%= message%>
+					<li><%= message%></li>
 			<%end%>
 		<%end%>
 	
