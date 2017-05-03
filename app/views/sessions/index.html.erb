@@ -7,6 +7,11 @@
 			<%= form_tag(session_path(r.id), :method => :put) do%>
 				<li>
 					<%= r.user_name%> (<%= r.student_id%>)   
+					<% if r.image? %>
+      					<div class="thumbnail">
+					        <%= image_tag r.image.url,:size => "20x20"%>
+					    </div>
+					<% end %>
 					<%=link_to "[削除]", user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" }%>
 					<%= select_tag :role, options_from_collection_for_select(@roles, :id, :role_name, r.role_id)%>
 					<%= hidden_field_tag :user_id, r.id%>
@@ -16,3 +21,5 @@
 		<%end%>
 	</ul>
 </hr>
+
+

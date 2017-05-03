@@ -1,8 +1,11 @@
 <h1>対局一覧</h1>
 
 <%=link_to "新規追加", new_game_path%>
-<%=link_to "mypage", user_path(session[:user_id])%>
+<%if session[:user_id]!=nil%>
+	<%=link_to "mypage", user_path(session[:user_id])%>
+<%end%>
 <%=link_to "ランキング", ranks_path%>
+<%=link_to "ログイン",new_session_path%>
 
 <hr>
 	<ul>

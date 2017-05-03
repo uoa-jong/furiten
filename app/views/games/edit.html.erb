@@ -1,6 +1,8 @@
 <h1>結果を編集</h1>
 
-<%= link_to "mypage", user_path(session[:user_id])%>
+<%if session[:user_id]!=nil%>
+	<%= link_to "mypage", user_path(session[:user_id])%>
+<%end%>
 <%= link_to "全対局", games_path%>
 
 <hr>
@@ -15,7 +17,7 @@
 		<li>対局日<%=f.label :game_date%>
 		<%=f.text_field :game_date%></li>
 		<li>東<%= f.label :e_userid%>
-		<%= f.select :e_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %> 
+		<%= f.select :e_userid, User.all.uniq.map{|t| [t.user_name, t.id]}%> 
 		<%= f.label "±"%>
 		<%= f.select :e_pm, options_for_select([["+", 1], ["△", -1]])  %> 
 		<%#<%=p params.as_json %>

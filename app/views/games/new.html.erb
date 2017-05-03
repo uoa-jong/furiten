@@ -1,6 +1,8 @@
 <h1>結果を新規作成</h1>
 
-<%= link_to "mypage", user_path(session[:user_id])%>
+<%if session[:user_id]!=nil%>
+	<%= link_to "mypage", user_path(session[:user_id])%>
+<%end%>
 <%= link_to "全対局", games_path%>
 
 <hr>
