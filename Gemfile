@@ -58,3 +58,5 @@ gem 'kaminari'
 gem "carrierwave"
 
 gem 'materialize-sass'
+
+gem 'cloudinary'

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hzgmilaw8
+  api_key: '255156163544169'
+  api_secret: w3UyhGiFXtjA0dOPlCRFZQ8ajao
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hzgmilaw8
+  api_key: '255156163544169'
+  api_secret: w3UyhGiFXtjA0dOPlCRFZQ8ajao
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hzgmilaw8
+  api_key: '255156163544169'
+  api_secret: w3UyhGiFXtjA0dOPlCRFZQ8ajao
+  enhance_image_tag: true
+  static_image_support: false
