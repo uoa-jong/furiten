@@ -3,13 +3,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  include Cloudinary::CarrierWave
-
-
+  if Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
+    storage :file
+  end
   # Choose what kind of storage to use for this uploader:
-  #もともとあった
-  ###storage :file
-  process tags: ['profile image']
+  
+  
+  #process tags: ['profile image']
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -21,7 +23,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   ##end
 
 
-  process :convert => 'png'
+  #process :convert => 'png'
 
   def public_id
     return model.id
