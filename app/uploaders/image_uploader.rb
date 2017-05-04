@@ -17,11 +17,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def public_id
-    return User.id
+    return model.id
   end
 
   process :convert => 'png'
-  
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
