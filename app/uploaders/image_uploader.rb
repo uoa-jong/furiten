@@ -7,7 +7,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #もともとあった
+  ###storage :file
+  process tags: ['profile image']
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -20,6 +22,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   process :convert => 'png'
+
+  def public_id
+    return model.id
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
