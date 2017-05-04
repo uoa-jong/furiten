@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
  
-  <%if request.path_info != new_session_path && request.path_info != new_user_path%>
+  <%if request.path_info != new_session_path && request.path_info != new_user_path && request.path != root_path%>
 	  <header>
 	  	<nav class="nav-fixed">
 			<div class="nav-wrapper">

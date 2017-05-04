@@ -8,4 +8,4 @@
 
 	Role.create(role_name: '管理者')
 	Role.create(role_name: '一般')
-	#User.create(student_id: 'admin', user_name: 'admin',password: 'password', role_id: 1)
+	User.create(:student_id => 'adminusr', :user_name => 'admin',:password => 'password', :role_id => 1)
