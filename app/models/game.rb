@@ -8,22 +8,22 @@ class Game < ApplicationRecord
 	
 	validates :e_userid, presence: {message: "[東]ユーザーを選択してください"}
 	validates :e_score, presence: {message: "[東]スコアを入力してください"} ,
-						format: { with: /\A[0-9][0-9.-]+\z/ , message: "[東]スコアは半角数字で入力してください"},
+						format: { with: /\A[-]?[0-9][0-9.]+\z/ , message: "[東]スコアは半角数字で入力してください"},
 						numericality: {greater_than_or_equal_to: -200,less_than: 200 ,message:"[東]スコアの値が正しくありません"}
 	
 	validates :s_userid, presence: {message: "[南]ユーザーを選択してください"}
 	validates :s_score, presence: {message: "[南]スコアを入力してください"} ,
-						format: { with: /\A[0-9][0-9.]+\z/ , message: "[南]スコアは半角数字で入力してください"},
+						format: { with: /\A[-]?[0-9][0-9.]+\z/ , message: "[南]スコアは半角数字で入力してください"},
 						numericality: {greater_than_or_equal_to: -200,less_than: 200 ,message:"[南]スコアの値が正しくありません"}
 
 	validates :w_userid, presence: {message: "[西]ユーザーを選択してください"}
 	validates :w_score, presence: {message: "[西]スコアを入力してください"} ,
-						format: { with: /\A[0-9][0-9.]+\z/ , message: "[西]スコアは半角数字で入力してください"},
+						format: { with: /\A[-]?[0-9][0-9.]+\z/ , message: "[西]スコアは半角数字で入力してください"},
 						numericality: {greater_than_or_equal_to: -200,less_than: 200 ,message:"[西]スコアの値が正しくありません"}
 
 	validates :n_userid, presence: {message: "[北]ユーザーを選択してください"}
 	validates :n_score, presence: {message: "[北]スコアを入力してください"} ,
-						format: { with: /\A[0-9][0-9.]+\z/ , message: "[北]スコアは半角数字で入力してください"},
+						format: { with: /\A[-]?[0-9][0-9.]+\z/ , message: "[北]スコアは半角数字で入力してください"},
 						numericality: {greater_than_or_equal_to: -200,less_than: 200 ,message:"[北]スコアの値が正しくありません"}
 
 	validate :check_total_score_equals_0
