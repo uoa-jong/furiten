@@ -8,7 +8,7 @@ class Game < ApplicationRecord
 	
 	validates :e_userid, presence: {message: "[東]ユーザーを選択してください"}
 	validates :e_score, presence: {message: "[東]スコアを入力してください"} ,
-						format: { with: /\A[0-9][0-9.]+\z/ , message: "[東]スコアは半角数字で入力してください"},
+						format: { with: /\A[0-9][0-9.-]+\z/ , message: "[東]スコアは半角数字で入力してください"},
 						numericality: {greater_than_or_equal_to: -200,less_than: 200 ,message:"[東]スコアの値が正しくありません"}
 	
 	validates :s_userid, presence: {message: "[南]ユーザーを選択してください"}
