@@ -54,7 +54,12 @@
 			            	<td><%=index+1%></td>
 			            <%end%>
 			            
-			            <td><%=link_to u.user_name,user_path(u)%>(<%=u.student_id%>)</td>
+			            <td>
+			            	<%=link_to u.user_name,user_path(u)%>(<%=u.student_id%>)
+			            	<% if u.image? %>
+								<%= image_tag u.image.url,:size => "32x32"%>
+							<% end %>
+						</td>
 			            <td><%=u.game_count%></td>
 			        	<td><%=u.total_score%></td>
 			        </tr>
