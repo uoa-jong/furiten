@@ -4,7 +4,11 @@ class RanksController < ApplicationController
 		@start_time =  params[:start_time].nil? ? (Time.now.prev_year) : params[:start_time].to_datetime
 		@end_time =  params[:end_time].nil? ? (Time.now) : params[:end_time].to_datetime
 		@game_limit = params[:game_limit].nil? ? (1) : params[:game_limit].to_i
-		@game = Game.where(game_date: [@start_time..@end_time])
+
+		p @start_time
+		p @end_time
+		#@game = Game.where(game_date: [@start_time..@end_time])
+		@game = Game.where("game_date BETWEEN ? AND ? " ,@start_time,@end_time)
 		@users = User.all
 
 
@@ -29,9 +33,13 @@ class RanksController < ApplicationController
 			end
 			user.total_score = totalscore
 			user.game_count = game_count
-			user.save
+			if user.save
+				p "Can"
+			else
+				p "Can't Save"
+			end
 		end
-		@users = User.where("game_count >= ?",@game_limit ).order(total_score: :desc)
+		@users = User.where("game_count >= ?",@game_limit).order(total_score: :desc)
 	end
 
 	def create
