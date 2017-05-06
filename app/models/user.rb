@@ -12,7 +12,8 @@ class User < ApplicationRecord
                         length: { maximum: 15 }
    
    #validates :email, format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/ , message: "入力されたメールアドレスが正しくありません"}
-   #validates :profile,  length: {in: 0..200,message:"bioは200文字以内で入力してください"}
+   validates :profile,  length: {maximum:200 ,message:"bioは200文字以内で入力してください"}
+   
    validates :password, confirmation: true,presence: {message: "パスワードを入力してください"}, length: { in: 6..24 }, if: :password
    validates :password_confirmation ,presence: {message: "確認用パスワードを入力してください"}, if: :password 
 

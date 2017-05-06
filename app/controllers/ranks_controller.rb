@@ -5,8 +5,6 @@ class RanksController < ApplicationController
 		@end_time =  params[:end_time].nil? ? (Time.now) : params[:end_time].to_datetime
 		@game_limit = params[:game_limit].nil? ? (1) : params[:game_limit].to_i
 
-		p @start_time
-		p @end_time
 		#@game = Game.where(game_date: [@start_time..@end_time])
 		@game = Game.where("game_date BETWEEN ? AND ? " ,@start_time,@end_time)
 		@users = User.all
