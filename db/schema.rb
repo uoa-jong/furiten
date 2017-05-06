@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430193218) do
+ActiveRecord::Schema.define(version: 20170506125545) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "e_userid"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20170430193218) do
     t.decimal  "total_score",     default: "0.0", null: false
     t.integer  "game_count"
     t.string   "image"
+    t.string   "email"
+    t.string   "profile"
   end
 
 end

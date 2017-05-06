@@ -3,8 +3,10 @@ class RanksController < ApplicationController
 	def index
 		@start_time =  params[:start_time].nil? ? (Time.now.prev_year) : params[:start_time].to_datetime
 		@end_time =  params[:end_time].nil? ? (Time.now) : params[:end_time].to_datetime
+		@game_limit = params[:game_limit].nil? ? (1) : params[:game_limit].to_i
 		@game = Game.where(game_date: [@start_time..@end_time])
 		@users = User.all
+
 
 		@users.each do |u|
 			user = User.find(u.id)
@@ -29,7 +31,7 @@ class RanksController < ApplicationController
 			user.game_count = game_count
 			user.save
 		end
-		@users = User.all.order(total_score: :desc)
+		@users = User.where("game_count >= ?",@game_limit ).order(total_score: :desc)
 	end
 
 	def create

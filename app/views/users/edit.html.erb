@@ -23,12 +23,20 @@
     					<p class="pink-text"><%= f.file_field :image %></p>
     					<%= f.hidden_field :image_cache%>
     					<div class="col s8">
-    						<p class="pink-text"><%=f.label :user_name,"学籍番号"%></p>
+    						<p class="pink-text"><%=f.label :user_name,"ユーザー名"%></p>
     						<%=f.text_field :user_name ,class: "center"%>
     					</div>
     					<div class = "col s8 ">
-							<p class="pink-text"><%=f.label :student_id, "s1220XXX"%></p>
+							<p class="pink-text"><%=f.label :student_id, "学籍番号(s1220XXX)"%></p>
 							<%=f.text_field :student_id,class: "center"%>
+						</div>
+						<div class = "col s8 ">
+							<p class="pink-text"><%=f.label :email, "example@uoa.com"%></p>
+							<%=f.text_field :email,class: "center"%>
+						</div>
+						<div class = "col s8 ">
+							<p class="pink-text"><%=f.label :profile, "bio"%></p>
+							<%=f.text_area :profile,class: "center materialize-textarea",:maxlength => "200"%>
 						</div>
 						<div class="row">
 							<div class="col s8">

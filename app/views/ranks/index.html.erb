@@ -10,17 +10,21 @@
 			<div class="col s12">
 				<div class="row">
 					<%=form_tag(ranks_path, :method => :get) do %>
-						<div class="col s4">
+						<div class="col s3">
 							<label for='start_time'>Start Time</label>
 							<%=	text_field_tag :start_time, @start_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
 						</div>
-						<div class="col s2">
+						<div class="col s1">
 				    		<p><span class=grey-text>~</span></p>
 				    	</div>
-				    	<div class="col s4">
+				    	<div class="col s3">
 				    		<label for='end_time'>End Time</label>
 				      		<%=	text_field_tag :end_time, @end_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
 				    　	</div>
+				    	<div class="col s3">
+				    		<label for=':game_limit'>対局数</label>
+				    		<%=	text_field_tag :game_limit,@game_limit%>
+				    	</div>
 				    	<div class="col s2">
 				    		<%=submit_tag("検索する",class: "waves-effect waves-light btn orange") %>
 				    	</div>
