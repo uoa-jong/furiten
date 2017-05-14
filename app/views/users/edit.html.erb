@@ -1,5 +1,5 @@
-<div class="section"></div>
-    
+<%if @user.id == session[:user_id]%>
+	<div class="section"></div>
     <div class="section"></div>
     <div class="section">
 	    <div class="container">
@@ -48,6 +48,9 @@
 	    	<%end%>
 	    </div>
 	</div>
+<%else%>
+	<h5>あなたに<%=@user.user_name%>の内容を変更することはできません。</h5>
+<%end%>
 	<!--FAB menu-->
 	<div class="fixed-action-btn horizontal click-to-toggle">
 		<a class="btn-floating btn-large red accent-2">

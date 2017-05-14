@@ -1,92 +1,96 @@
-<div class="section">
-	<div class="container">
-		<div class="row">
-			<div class="col s12">
-	  			<blockquote><p>ランキング</p></blockquote>
-	      			<p class="flow-text" style="color: #ffa000;"><%= @start_time.try(:strftime, "%Y/%m/%d").to_s%> ~ <%= @end_time.try(:strftime, "%Y/%m/%d").to_s%>のランキング</p>
-	    　	</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<div class="row">
-					<%=form_tag(ranks_path, :method => :get) do %>
-						<div class="col s3">
-							<label for='start_time'>Start Time</label>
-							<%=	text_field_tag :start_time, @start_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
-						</div>
-						<div class="col s1">
-				    		<p><span class=grey-text>~</span></p>
-				    	</div>
-				    	<div class="col s3">
-				    		<label for='end_time'>End Time</label>
-				      		<%=	text_field_tag :end_time, @end_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
-				    　	</div>
-				    	<div class="col s3">
-				    		<label for=':game_limit'>対局数</label>
-				    		<%=	text_field_tag :game_limit,@game_limit%>
-				    	</div>
-				    	<div class="col s2">
-				    		<%=submit_tag("検索する",class: "waves-effect waves-light btn orange") %>
-				    	</div>
-				    <%end%>
+<%if session[:user_id] != nil%>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col s12">
+		  			<blockquote><p>ランキング</p></blockquote>
+		      			<p class="flow-text" style="color: #ffa000;"><%= @start_time.try(:strftime, "%Y/%m/%d").to_s%> ~ <%= @end_time.try(:strftime, "%Y/%m/%d").to_s%>のランキング</p>
+		    　	</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<div class="row">
+						<%=form_tag(ranks_path, :method => :get) do %>
+							<div class="col s3">
+								<label for='start_time'>Start Time</label>
+								<%=	text_field_tag :start_time, @start_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
+							</div>
+							<div class="col s1">
+					    		<p><span class=grey-text>~</span></p>
+					    	</div>
+					    	<div class="col s3">
+					    		<label for='end_time'>End Time</label>
+					      		<%=	text_field_tag :end_time, @end_time.try(:strftime, "%Y/%m/%d"),:class => "datepicker"%>
+					    　	</div>
+					    	<div class="col s3">
+					    		<label for=':game_limit'>対局数</label>
+					    		<%=	text_field_tag :game_limit,@game_limit%>
+					    	</div>
+					    	<div class="col s2">
+					    		<%=submit_tag("検索する",class: "waves-effect waves-light btn orange") %>
+					    	</div>
+					    <%end%>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="row">
-			<table class="highlight col s12 centered bordered">
-				<thead>
-					<tr>
-			          	<th>順位</th>
-			           	<th>氏名(学籍番号)</th>
-			            <th>対局数</th>
-			            <th>合計スコア</th>
-			         </tr>
-				</thead>
+			<div class="row">
+				<table class="highlight col s12 centered bordered">
+					<thead>
+						<tr>
+				          	<th>順位</th>
+				           	<th>氏名(学籍番号)</th>
+				            <th>対局数</th>
+				            <th>合計スコア</th>
+				         </tr>
+					</thead>
 
-				<% @users.each_with_index do |u,index| %>
+					<% @users.each_with_index do |u,index| %>
 
-				<tbody>
-			       	<tr>
-			       		<%if index+1 == 1 %>
-			            	<td class="yellow-text text-darken-2"><%=index+1%></td>
-			            <%elsif index+1 == 2%>
-			            	<td class="grey-text"><%=index+1%></td>
-			            <%elsif index+1 == 3%>
-			            <td class="red-text text-darken-3"><%=index+1%></td>
-			           	<%else%>
-			            	<td><%=index+1%></td>
-			            <%end%>
-			            
-			            <td>
-			            	<%=link_to u.user_name,user_path(u)%>(<%=u.student_id%>)
-			            	<% if u.image? %>
-								<%= image_tag u.image.url,:size => "32x32"%>
-							<% end %>
-						</td>
-			            <td><%=u.game_count%></td>
-			        	<td><%=u.total_score%></td>
-			        </tr>
-			    </tbody>
+					<tbody>
+				       	<tr>
+				       		<%if index+1 == 1 %>
+				            	<td class="yellow-text text-darken-2"><%=index+1%></td>
+				            <%elsif index+1 == 2%>
+				            	<td class="grey-text"><%=index+1%></td>
+				            <%elsif index+1 == 3%>
+				            <td class="red-text text-darken-3"><%=index+1%></td>
+				           	<%else%>
+				            	<td><%=index+1%></td>
+				            <%end%>
+				            
+				            <td>
+				            	<%=link_to u.user_name,user_path(u)%>(<%=u.student_id%>)
+				            	<% if u.image? %>
+									<%= image_tag u.image.url,:size => "32x32"%>
+								<% end %>
+							</td>
+				            <td><%=u.game_count%></td>
+				        	<td><%=u.total_score%></td>
+				        </tr>
+				    </tbody>
 
-			   	<%end%>
-			</table>
-		</div>
-		<!--FAB menu-->
-		<div class="fixed-action-btn horizontal click-to-toggle">
-			<a class="btn-floating btn-large red accent-2">
-				<i class="large material-icons">add</i>
-			</a>
-				<ul>
-					<%if session[:user_id] != nil%>
-					  	<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
-					  	<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
-					<%else%>
-					  	<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
-					<%end%>
-					 	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
-				</ul>
+				   	<%end%>
+				</table>
+			</div>
+			<!--FAB menu-->
+			<div class="fixed-action-btn horizontal click-to-toggle">
+				<a class="btn-floating btn-large red accent-2">
+					<i class="large material-icons">add</i>
+				</a>
+					<ul>
+						<%if session[:user_id] != nil%>
+						  	<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
+						  	<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
+						<%else%>
+						  	<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
+						<%end%>
+						 	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+					</ul>
 			</div>	 
+		</div>
 	</div>
-</div>
+<%else%>
+	<h5>ログインしてください。</h5>
+<%end%>
 

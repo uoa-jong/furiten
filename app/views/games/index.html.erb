@@ -1,101 +1,104 @@
-<div class="section">
-	<div class="container">
-		<div class="row">
-	　　　　	<div class="col s12">
-	      		<blockquote><p>対局一覧</p></blockquote>
-	　　　　	</div>
+<%if session[:user_id] != nil%>
+	<div class="section">
+		<div class="container">
+			<div class="row">
+		　　　　	<div class="col s12">
+		      		<blockquote><p>対局一覧</p></blockquote>
+		　　　　	</div>
 
-			<!--table generate-->
-			
-			<center>
-				<div class='col s12'>                   
-                    <% if notice %>
-                      <p class= "pink-text" style="font-size:20px;"> <%= notice%> </p>
-                    <%end%>
-                </div>
-				<% @games.each do |g| %>
-					<% e_user = User.find_by_id(g.e_userid)%>
-					<% s_user = User.find_by_id(g.s_userid)%>
-					<% w_user = User.find_by_id(g.w_userid)%>
-					<% n_user = User.find_by_id(g.n_userid)%>
-					<div class="row">
-						<div class="col s6 offset-s1">
-							<p class="orange-text">対局日: <%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
-						</div>
-							<%if session[:user_id]!=nil%>
-								<%user = User.find(session[:user_id])%>
-								<%role = Role.find_by(role_name: '管理者')%>
-								<%if user.role_id == role.id%>
-									<ul>
-										<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%></a>
-										<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
-									</ul>
+				<!--table generate-->
+				
+				<center>
+					<div class='col s12'>                   
+	                    <% if notice %>
+	                      <p class= "pink-text" style="font-size:20px;"> <%= notice%> </p>
+	                    <%end%>
+	                </div>
+					<% @games.each do |g| %>
+						<% e_user = User.find_by_id(g.e_userid)%>
+						<% s_user = User.find_by_id(g.s_userid)%>
+						<% w_user = User.find_by_id(g.w_userid)%>
+						<% n_user = User.find_by_id(g.n_userid)%>
+						<div class="row">
+							<div class="col s6 offset-s1">
+								<p class="orange-text">対局日: <%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
+							</div>
+								<%if session[:user_id]!=nil%>
+									<%user = User.find(session[:user_id])%>
+									<%role = Role.find_by(role_name: '管理者')%>
+									<%if user.role_id == role.id%>
+										<ul>
+											<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%></a>
+											<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
+										</ul>
+									<%end%>
 								<%end%>
-							<%end%>
-							<table class="highlight col s6 offset-s3 centered bordered">
-						        <thead>
-						          	<tr>
-						          		<th></th>
-						              	<th>氏名(学籍番号)</th>
-						              	<th>スコア</th>
-						          	</tr>
-						        </thead>
+								<table class="highlight col s6 offset-s3 centered bordered">
+							        <thead>
+							          	<tr>
+							          		<th></th>
+							              	<th>氏名(学籍番号)</th>
+							              	<th>スコア</th>
+							          	</tr>
+							        </thead>
 
-					        	<tbody>
-						          	<tr>
-						            	<td >東</td>
-						            	<%if e_user != nil%><td><%= e_user.user_name %>(<%=e_user.student_id%>)</td>
-						            	<%else%><td>id = <%= g.e_userid %></td><%end%>
-						            	<td><%=g.e_score%></td>
-						          	</tr>
-						          	<tr>
-						            	<td >南</td>
-						            	<%if s_user != nil%><td><%= s_user.user_name %>(<%=s_user.student_id%>)</td>
-						            	<%else%><td>id = <%= g.s_userid %></td><%end%>
-						            	<td><%=g.s_score%></td>
-						          	</tr>
-						          	<tr>
-						            	<td >西</td>
-						            	<%if w_user != nil%><td><%= w_user.user_name %>(<%=w_user.student_id%>)</td>
-						            	<%else%><td>id = <%= g.w_userid %></td><%end%>
-						            	<td><%=g.w_score%></td>
-						          	</tr>
-						          	<tr>
-						            	<td >北</td>
-						            	<%if n_user != nil%><td><%= n_user.user_name %>(<%=n_user.student_id%>)</td>
-						            	<%else%><td>id = <%= g.n_userid %></td><%end%>
-						            	<td><%=g.n_score%></td>
-						          	</tr>
-						        </tbody>
-						    </table>
-						</div>
-					<%end%>
-				</center>
-				<div class="container">
-					<div class="row">
-						<div class="center">
-							<ul class="pagination">
-								<%= paginate(@games)%>
-							</ul>
+						        	<tbody>
+							          	<tr>
+							            	<td >東</td>
+							            	<%if e_user != nil%><td><%= e_user.user_name %>(<%=e_user.student_id%>)</td>
+							            	<%else%><td>id = <%= g.e_userid %></td><%end%>
+							            	<td><%=g.e_score%></td>
+							          	</tr>
+							          	<tr>
+							            	<td >南</td>
+							            	<%if s_user != nil%><td><%= s_user.user_name %>(<%=s_user.student_id%>)</td>
+							            	<%else%><td>id = <%= g.s_userid %></td><%end%>
+							            	<td><%=g.s_score%></td>
+							          	</tr>
+							          	<tr>
+							            	<td >西</td>
+							            	<%if w_user != nil%><td><%= w_user.user_name %>(<%=w_user.student_id%>)</td>
+							            	<%else%><td>id = <%= g.w_userid %></td><%end%>
+							            	<td><%=g.w_score%></td>
+							          	</tr>
+							          	<tr>
+							            	<td >北</td>
+							            	<%if n_user != nil%><td><%= n_user.user_name %>(<%=n_user.student_id%>)</td>
+							            	<%else%><td>id = <%= g.n_userid %></td><%end%>
+							            	<td><%=g.n_score%></td>
+							          	</tr>
+							        </tbody>
+							    </table>
+							</div>
+						<%end%>
+					</center>
+					<div class="container">
+						<div class="row">
+							<div class="center">
+								<ul class="pagination">
+									<%= paginate(@games)%>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!--FAB menu-->
-				<div class="fixed-action-btn horizontal click-to-toggle">
-					<a class="btn-floating btn-large red accent-2">
-						<i class="large material-icons">add</i>
-					</a>
-					<ul>
-					  	<%if session[:user_id] != nil%>
-					  		<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
-					  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
-					  	<%else%>
-					  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
-					  	<%end%>
-					  	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
-					</ul>
-				</div>	 
-	   		</div>
+					<!--FAB menu-->
+					<div class="fixed-action-btn horizontal click-to-toggle">
+						<a class="btn-floating btn-large red accent-2">
+							<i class="large material-icons">add</i>
+						</a>
+						<ul>
+						  	<%if session[:user_id] != nil%>
+						  		<li><a><%=link_to '<i class="material-icons">lock_outline</i>'.html_safe,session_path(session[:user_id]),class: "btn-floating red", method: :delete, data: { confirm: "本当にログアウトしますか?" }%></a></li>
+						  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,user_path(session[:user_id]),class: "btn-floating yellow darken-1"%></a></li>
+						  	<%else%>
+						  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
+						  	<%end%>
+						  	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+						</ul>
+					</div>	 
+		   		</div>
+			</div>
 		</div>
-	</div>
-
+<%else%>
+	<h5>ログインしてください。</h5>
+<%end%>
