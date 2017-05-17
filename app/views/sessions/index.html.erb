@@ -15,7 +15,7 @@
 							<% @users.each do |r| %>
 								<%= form_tag(session_path(r.id), :method => :put, class: "col s12") do%>
 									<div class="row">
-										<div class="col s5"><%#s5%>
+										<div class="col s6"><%#s5%>
 								    		<i class="material-icons prefix">account_circle</i>
 											<%=link_to r.user_name,user_path(r)%> (<%= r.student_id%>)
 											<% if r.image? %>
@@ -26,12 +26,12 @@
 					    					<%= select_tag :role, options_from_collection_for_select(@roles, :id, :role_name, r.role_id)%>
 											<%= hidden_field_tag :user_id, r.id%>
 										</div>
-										<div class="col s4">
-											<%= button_tag(type: "submit" ,class: "waves-effect waves-light btn orange") do %>
+										<div class="col s3">
+											<%= button_tag(type: "submit" ,class: "waves-effect waves-light btn-floating orange") do %>
 												<i class="material-icons">done</i>
 											<% end %>
 										<!---->
-											<%=link_to "<i class='material-icons'>delete</i>".html_safe, user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" },class: "waves-effect waves-light btn orange"%>
+											<%=link_to "<i class='material-icons'>delete</i>".html_safe, user_path(r), method: :delete, data: { confirm: "本当に削除しますか?" },class: "waves-effect waves-light btn-floating orange"%>
 					    				</div>
 									</div>
 								<%end%>
