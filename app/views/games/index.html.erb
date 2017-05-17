@@ -33,42 +33,44 @@
 										</ul>
 									<%end%>
 								<%end%>
-								<table class="highlight col s6 offset-s3 centered bordered">
-							        <thead>
-							          	<tr>
-							          		<th></th>
-							              	<th>氏名(学籍番号)</th>
-							              	<th>スコア</th>
-							          	</tr>
-							        </thead>
+								<div>	
+									<table class="highlight centered bordered">
+								        <thead>
+								          	<tr>
+								          		<th></th>
+								              	<th>氏名(学籍番号)</th>
+								              	<th>スコア</th>
+								          	</tr>
+								        </thead>
 
-						        	<tbody>
-							          	<tr>
-							            	<td >東</td>
-							            	<%if e_user != nil%><td><%= e_user.user_name %> (<%=e_user.student_id%>)</td>
-							            	<%else%><td>id = <%= g.e_userid %></td><%end%>
-							            	<td><%=g.e_score%></td>
-							          	</tr>
-							          	<tr>
-							            	<td >南</td>
-							            	<%if s_user != nil%><td><%= s_user.user_name %> (<%=s_user.student_id%>)</td>
-							            	<%else%><td>id = <%= g.s_userid %></td><%end%>
-							            	<td><%=g.s_score%></td>
-							          	</tr>
-							          	<tr>
-							            	<td >西</td>
-							            	<%if w_user != nil%><td><%= w_user.user_name %> (<%=w_user.student_id%>)</td>
-							            	<%else%><td>id = <%= g.w_userid %></td><%end%>
-							            	<td><%=g.w_score%></td>
-							          	</tr>
-							          	<tr>
-							            	<td >北</td>
-							            	<%if n_user != nil%><td><%= n_user.user_name %> (<%=n_user.student_id%>)</td>
-							            	<%else%><td>id = <%= g.n_userid %></td><%end%>
-							            	<td><%=g.n_score%></td>
-							          	</tr>
-							        </tbody>
-							    </table>
+							        	<tbody>
+								          	<tr>
+								            	<td >東</td>
+								            	<%if e_user != nil%><td><%= e_user.user_name %> (<%=e_user.student_id%>)</td>
+								            	<%else%><td>id = <%= g.e_userid %></td><%end%>
+								            	<td><%=g.e_score%></td>
+								          	</tr>
+								          	<tr>
+								            	<td >南</td>
+								            	<%if s_user != nil%><td><%= s_user.user_name %> (<%=s_user.student_id%>)</td>
+								            	<%else%><td>id = <%= g.s_userid %></td><%end%>
+								            	<td><%=g.s_score%></td>
+								          	</tr>
+								          	<tr>
+								            	<td >西</td>
+								            	<%if w_user != nil%><td><%= w_user.user_name %> (<%=w_user.student_id%>)</td>
+								            	<%else%><td>id = <%= g.w_userid %></td><%end%>
+								            	<td><%=g.w_score%></td>
+								          	</tr>
+								          	<tr>
+								            	<td >北</td>
+								            	<%if n_user != nil%><td><%= n_user.user_name %> (<%=n_user.student_id%>)</td>
+								            	<%else%><td>id = <%= g.n_userid %></td><%end%>
+								            	<td><%=g.n_score%></td>
+								          	</tr>
+								        </tbody>
+								    </table>
+								  </div>
 							</div>
 						<%end%>
 					</center>
