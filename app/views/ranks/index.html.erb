@@ -60,7 +60,7 @@
 				            <%end%>
 				            
 				            <td>
-				            	<%=link_to u.user_name,user_path(u)%>(<%=u.student_id%>)
+				            	<%=link_to u.user_name,user_path(u)%> (<%=u.student_id%>)
 				            	<% if u.image? %>
 									<%= image_tag u.image.url,:size => "32x32"%>
 								<% end %>
