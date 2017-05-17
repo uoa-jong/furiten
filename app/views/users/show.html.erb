@@ -20,12 +20,12 @@
 							<% if @user.image? %>
 								<%= image_tag @user.image_url,:width => "100%",:height => "100%"  %>
 							<% end %>
-							<p class="orange-text">UserName: 
+							<p class="orange-text">氏名:<br>
 							<span class="pink-text"><%=@user.user_name%></span></p>
-							<p class="orange-text">学籍番号:
+							<p class="orange-text">学籍番号:<br>
 							<span class="pink-text"> <%=@user.student_id%></span></p>
 							<% if @user.email?%>
-								<p class="orange-text">メールアドレス:<br>
+								<p class="orange-text">e-mail:<br>
 									<span class="pink-text"> <%=@user.email%></span></p>
 							<%end%>
 							<% if @user.profile?%>
