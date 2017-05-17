@@ -17,7 +17,7 @@
 									<div class="row">
 										<div class="col s5">
 								    		<i class="material-icons prefix">account_circle</i>
-											<%=link_to r.user_name,user_path(r)%>(<%= r.student_id%>)
+											<%=link_to r.user_name,user_path(r)%> (<%= r.student_id%>)
 											<% if r.image? %>
 											    <%= image_tag r.image.url,:size => "32x32"%>
 											<% end %>
