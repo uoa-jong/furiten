@@ -37,7 +37,7 @@
 						</div>
 						<div class="col s10 offset-s1"  style="padding:20px;">
 							<%if @user.id == session[:user_id]%>
-								<%= link_to "ユーザー情報編集",edit_user_path(@user),class: "waves-effect waves-light btn light-green"%>
+								<%= link_to "<i class='material-icons'>mode_edit</i>".html_safe,edit_user_path(@user),class: "waves-effect waves-light btn-floating light-green"%>
 							<%end%>
 						</div>
 					</div>

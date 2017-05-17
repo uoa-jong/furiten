@@ -102,9 +102,9 @@
 					
 					<!--submit-button-->
 
-						<div class="col s2 offset-s10">
+						<div >
 							
-							<%=f.submit "登録する", class: 'col s12 btn btn-large waves-effect orange darken-2 ' %>
+							<%=f.submit "登録".html_safe, class: 'col s12 btn-large waves-effect orange darken-2' %>
 							
 							<%#"モーダル実装時のボタン"<i class="material-icons right">send</i>
 							<button data-target="modal1" class="btn waves-effect waves-light right" type="button" name="action">

@@ -70,12 +70,13 @@
 							<% @users.each do |r| %>
 								<%= form_tag(session_path(r.id), :method => :put, class: "col s12") do%>
 									<div class="row">
-										<div class="col s6">
-								    		<i class="material-icons prefix">account_circle</i>
-											<%=link_to r.user_name,user_path(r)%>(<%= r.student_id%>)
-											<% if r.image? %>
+										<div>
+								    		<% if r.image? %>
 											    <%= image_tag r.image.url,:size => "32x32"%>
-											<% end %>
+											<% else %>
+								    		<i class="material-icons prefix">account_circle</i>
+								    		<%end%>
+											<%=link_to r.user_name,user_path(r)%> (<%= r.student_id%>)
 										</div>
 									</div>
 								<%end%>
