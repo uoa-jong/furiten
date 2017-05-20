@@ -24,7 +24,7 @@
 				 		<!--select name-->
 					  		<div class="col s5 input-field">
 					    		<i class="material-icons prefix">account_circle</i>
-								<%= f.select :e_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+								<%= f.select :e_userid, User.where("onlist = ?","on").uniq.map{|t| [t.user_name, t.id]} %>
 					    		<%= f.label :e_userid,"東"%>
 					  		</div>
 					  		<!--select plus or minus-->
@@ -42,7 +42,7 @@
 						<div class="row">
 					  		<div class="col s5 input-field">
 					    		<i class="material-icons prefix">account_circle</i>
-								<%= f.select :s_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+								<%= f.select :s_userid, User.where("onlist = ?","on").uniq.map{|t| [t.user_name, t.id]} %>
 								<%= f.label :s_userid,"南"%>
 					  		</div>
 					  
@@ -60,7 +60,7 @@
 						<div class="row">
 					  		<div class="col s5 input-field">
 					    		<i class="material-icons prefix">account_circle</i>
-								<%= f.select :w_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+								<%= f.select :w_userid, User.where("onlist = ?","on").uniq.map{|t| [t.user_name, t.id]} %>
 								<%= f.label :w_userid,"西"%>
 						    	
 						  	</div>
@@ -77,7 +77,7 @@
 						<div class="row">
 					  		<div class="col s5 input-field">
 					    		<i class="material-icons prefix">account_circle</i>
-								<%= f.select :n_userid, User.all.uniq.map{|t| [t.user_name, t.id]} %>
+								<%= f.select :n_userid, User.where("onlist = ?","on").uniq.map{|t| [t.user_name, t.id]} %>
 								<%= f.label :n_userid,"北"%>
 					  		</div>
 						  	<div class="col s3 input-field">

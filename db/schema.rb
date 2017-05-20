@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506125545) do
+ActiveRecord::Schema.define(version: 20170520093203) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "e_userid"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170506125545) do
     t.string   "image"
     t.string   "email"
     t.string   "profile"
+    t.string   "onlist"
   end
 
 end

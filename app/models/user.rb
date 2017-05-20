@@ -20,6 +20,7 @@ class User < ApplicationRecord
    def self.create_normal_user(params)
    		user = self.new(params)
    		user.role_id = Role.find_by(role_name: "一般").id
+         user.onlist = "on"
          user.total_score = 0.0
          user.game_count = 0
    		user

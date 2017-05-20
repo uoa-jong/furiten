@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   def update
     user = User.find(params[:user_id])
     user.role_id = params[:role]
+    user.onlist = params[:onlist]
     user.save
     redirect_to sessions_path
   end
