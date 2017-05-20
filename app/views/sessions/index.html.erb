@@ -29,6 +29,7 @@
 												<%= hidden_field_tag :user_id, r.id%>
 											<%else%>
 												<p class="pink-text">開発者</p>
+												<%= hidden_field_tag :role, r.role_id%>
 												<%= hidden_field_tag :user_id, r.id%>
 											<%end%>
 										</div>
