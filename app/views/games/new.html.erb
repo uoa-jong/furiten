@@ -144,6 +144,7 @@
 						  		<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
 						  	<%end%>
 						  	<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+						  	<li><a><%=link_to "<i class='material-icons'>playlist_add</i>".html_safe,new_game_path,class: "btn-floating blue"%></a></li>
 						</ul>
 					</div>	      
 				</div>
@@ -164,7 +165,7 @@
 			<%else%>
 				<li><a><%=link_to "<i class='material-icons'>perm_identity</i>".html_safe,new_session_path,class: "btn-floating yellow darken-1"%></a></li>
 			<%end%>
-				<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,games_path,class: "btn-floating green"%></a></li>
+				<li><a><%=link_to "<i class='material-icons'>view_list</i>".html_safe,new_game_path,class: "btn-floating green"%></a></li>
 		</ul>
 	</div>	
 <%end%>
