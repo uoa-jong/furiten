@@ -82,14 +82,26 @@
 							<% @users.each do |r| %>
 								<%= form_tag(session_path(r.id), :method => :put, class: "col s12") do%>
 									<div class="row">
-										<div>
+										<div class="col s6">
 								    		<% if r.image? %>
 											    <%= image_tag r.image.url,:size => "32x32"%>
 											<% else %>
 								    			<i class="material-icons prefix">account_circle</i>
 								    		<%end%>
-											<%=link_to r.user_name,user_path(r)%> (<%= r.student_id%>) <%if r.student_id == "s1220226"%>
+											<%=link_to r.user_name,user_path(r)%> (<%= r.student_id%>) 
+										</div>
+										<div class="col s3">
+											<%if r.student_id == "s1220226"%>
 												<span class="pink-text">開発者</span>
+											<%else%>
+												<%=Role.find_by(id: r.role_id).role_name%>
+											<%end%>
+										</div>
+										<div class="col s3">
+											<%if r.onlist="on"%>
+												現役
+											<%else%>
+												卒業者
 											<%end%>
 										</div>
 									</div>
