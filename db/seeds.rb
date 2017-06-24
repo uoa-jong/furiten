@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-	Role.create(role_name: '管理者')
-	Role.create(role_name: '一般')
+	#Role.create(role_name: '管理者')
+	#Role.create(role_name: '一般')
 	#User.create(:student_id => 'adminusr', :user_name => 'admin',:password => 'password', :role_id => 1)
+	Rule.create(rule: '赤あり')
+	Rule.create(rule: '赤なし')

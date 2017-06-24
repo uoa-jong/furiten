@@ -20,19 +20,25 @@
 						<% w_user = User.find_by_id(g.w_userid)%>
 						<% n_user = User.find_by_id(g.n_userid)%>
 						<div class="row">
-							<div class="col s6 offset-s1">
+							<div class="col s6">
 								<p class="orange-text">対局日: <%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
 							</div>
+							<div class = "col s2">
+								<p class="orange-text">ルール: <%= Rule.find_by_id(g.rule_id).rule%></p>
+							</div>
+							<div class="col s3 right">
 								<%if session[:user_id]!=nil%>
 									<%user = User.find(session[:user_id])%>
 									<%role = Role.find_by(role_name: '管理者')%>
 									<%if user.role_id == role.id%>
 										<ul>
-											<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%></a>
+											<%# 編集による不具合%>
+											<%#<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
 											<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
 										</ul>
 									<%end%>
 								<%end%>
+							</div>
 								<div>	
 									<table class="highlight centered bordered">
 								        <thead>

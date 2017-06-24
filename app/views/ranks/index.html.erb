@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col s12">
 		  			<blockquote><p>ランキング</p></blockquote>
-		      			<p class="flow-text" style="color: #ffa000;"><%= @start_time.try(:strftime, "%Y/%m/%d").to_s%> ~ <%= @end_time.try(:strftime, "%Y/%m/%d").to_s%>のランキング</p>
+		      			<p class="flow-text" style="color: #ffa000;"><%= @start_time.try(:strftime, "%Y/%m/%d").to_s%> ~ <%= @end_time.try(:strftime, "%Y/%m/%d").to_s%> <%= Rule.find_by_id(@rule).rule%>のランキング</p>
 		    　	</div>
 			</div>
 			<div class="row">
@@ -23,7 +23,13 @@
 					    		<label for=':game_limit'>対局数</label>
 					    		<%=	text_field_tag :game_limit,@game_limit%>
 					    	</div>
-					    	<div class="col s1">
+						</div>
+						<div class="row">
+							<div class = "col s4">
+								<%= label_tag :rule ,"ルール"%>
+				    			<%= select_tag :rule, options_from_collection_for_select(Rule.all, :id, :rule, @rule)%>
+							</div>
+							<div class="col s1 right">
 						    	<%= button_tag(type: "submit" ,class: "waves-effect waves-light btn-floating orange") do %>
 									<i class="material-icons">search</i>
 								<% end %>

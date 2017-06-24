@@ -19,11 +19,16 @@
 								<%end%>
 			      			</div>
 			      			<!--datepicker-->
-					    	<div class="col s12">
+					    	<div class="col s8">
 					      		<%=f.label :game_date,"対局日"%>
 								<%=f.text_field :game_date%>
 					      		<!--<input id="game-date" type="date" class="datepicker"> datepicker-->
 					    	</div>
+					    	<div class = "col s3">
+				    			<%= label_tag :rule ,"ルール"%>
+				    			<%= select_tag :rule, options_from_collection_for_select(@rules, :id, :rule, :id)%>
+				    		</div>
+
 							<div class="row">
 					  
 					 		<!--select name-->

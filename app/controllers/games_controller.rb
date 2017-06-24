@@ -6,6 +6,7 @@ class GamesController < ApplicationController
 		@game = Game.new
 		@users = User.all
 		@time = Time.now
+		@rules = Rule.all
 	end
 
 	def create
@@ -17,6 +18,7 @@ class GamesController < ApplicationController
 		# modify i 
 		# i[:e_score] 
 		@game = Game.new(i)
+		@game.rule_id = params[:rule]
 		if @game.save
 			redirect_to games_path
 		else 
@@ -31,10 +33,12 @@ class GamesController < ApplicationController
 	def edit
 		@game = Game.find(params[:id])
 		@users = User.all
+		@rules = Rule.all
 	end
 
 	def update
 		@game = Game.find(params[:id])
+		@game.rule_id = params[:rule]
 		if @game.update_attributes(params_game)
 			redirect_to games_path(params[:id])
 		else 
@@ -52,7 +56,7 @@ class GamesController < ApplicationController
 
 	private
 		def params_game
-			params.require(:game).permit(:e_userid,:e_score,:s_userid,:s_score,:w_userid,:w_score,:n_userid,:n_score,:game_date)
+			params.require(:game).permit(:e_userid,:e_score,:s_userid,:s_score,:w_userid,:w_score,:n_userid,:n_score,:game_date,:rule)
 		end
 		def set_select_collections
       		@users = Game.all
