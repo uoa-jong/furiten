@@ -54,7 +54,7 @@
 									<p class="orange-text"><%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
 								</div>
 								<div class = "col s4">
-									<p class="orange-text"><%= Rule.find_by_id(g.rule_id).rule%></p>
+									<p class="orange-text"> <%= Rule.find_by_id(g.rule_id).rule%></p>
 								</div>
 								<div class="col s2">
 									<%if session[:user_id]!=nil%>
