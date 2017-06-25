@@ -29,7 +29,7 @@
 								<%= label_tag :rule ,"ルール"%>
 				    			<%= select_tag :rule, options_from_collection_for_select(Rule.all, :id, :rule, @rule)%>
 							</div>
-							<div class="col s1 right">
+							<div class="col s1 offset-s6">
 						    	<%= button_tag(type: "submit" ,class: "waves-effect waves-light btn-floating orange") do %>
 									<i class="material-icons">search</i>
 								<% end %>
