@@ -14,7 +14,7 @@
 				</div>
 
 				<div class="row">
-					<div class="col s5">
+					<div class="col m4 s12">
 						<div class="col s10 offset-s1" style="background-color:#f8f8f8;padding:10px;word-break:break-all;">
 							<p class="orange-text flow-text">Profile</p>
 							<% if @user.image? %>
@@ -43,14 +43,14 @@
 					</div>
 
 					<!--table generate-->
-					<div class="col s7">
+					<div class="col m8 s10 offset-s1">
 						<% @games.each do |g| %>
 						<% e_user = User.find_by_id(g.e_userid)%>
 						<% s_user = User.find_by_id(g.s_userid)%>
 						<% w_user = User.find_by_id(g.w_userid)%>
 						<% n_user = User.find_by_id(g.n_userid)%>
 							<div class="row">	
-								<div class="col s5">
+								<div class="col s5 offset-s1">
 									<p class="orange-text"><%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
 								</div>
 								<div class = "col s4">
@@ -70,7 +70,7 @@
 									<%end%>
 								</div>
 
-								<table class="highlight col s10 centered bordered left">
+								<table class="highlight col s10 offset-s1 bordered centered left">
 							        <thead>
 							          	<tr>
 							          		<th></th>
