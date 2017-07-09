@@ -20,6 +20,7 @@
 				      		<!--<input id="game-date" type="date" class="datepicker"> datepicker-->
 				    	</div>
 				    	<div class = "col s3">
+				    		<%@rules = Rule.all%>
 				    		<%= label_tag :rule ,"ルール"%>
 				    		<%= select_tag :rule, options_from_collection_for_select(@rules, :id, :rule),class: "red-text"%>
 				    	</div>

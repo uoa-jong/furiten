@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 		@game = Game.new
 		@users = User.all
 		@time = Time.now
-		@rules = Rule.all
+		#@rules = Rule.all
 	end
 
 	def create
