@@ -16,7 +16,7 @@
 		      			<!--datepicker-->
 				    	<div class="col s8">
 				      		<%=f.label :game_date,"対局日"%>
-							<%=f.text_field :game_date,:value => Time.now.try(:strftime, "%Y/%m/%d").to_s%>
+							<%=f.date_field :game_date,:value => Time.now.try(:strftime, "%Y/%m/%d").to_s, class: "datepicker"%>
 				      		<!--<input id="game-date" type="date" class="datepicker"> datepicker-->
 				    	</div>
 				    	<div class = "col s3">

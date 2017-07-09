@@ -20,7 +20,7 @@
 	    				<% if @user.image? %>
         					<%= image_tag @user.image_url,:width => "40%",:height => "40%" %>
     					<% end %>
-    					<p class="pink-text"><%= f.file_field :image %></p>
+    					<p class="pink-text"><%= f.file_field :image%></p>
     					<%= f.hidden_field :image_cache%>
     					<div class="col s8">
     						<p class="pink-text"><%=f.label :user_name,"ユーザー名"%></p>
