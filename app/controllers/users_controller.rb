@@ -23,8 +23,8 @@ class UsersController < ApplicationController
       now = Time.zone.now
       @time = Time.zone.local(now.year,now.month,1)
 
-      @score = Array.new(4, 0)
-      @plays = Array.new(4, 0)
+      @score = Array[0,0,0,0]
+      @plays = Array[0,0,0,0]
       
       for i in 0..3 do
         if i != 0 then
