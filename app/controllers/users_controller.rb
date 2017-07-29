@@ -84,10 +84,10 @@ class UsersController < ApplicationController
         [@time.month.to_s, @plays[0]]      ])
 
       #score
-      option_score = { width:"100%", height:"100%", title: "スコア" }
+      option_score = { width: 280, height: 150, title: "スコア" }
       @chart_score = GoogleVisualr::Interactive::AreaChart.new(data_score, option_score)
       #ranks
-      option_play = { width:"100%", height:"100%", title: "対局数" }
+      option_play = { width: 280, height: 150, title: "対局数" }
       @chart_counts = GoogleVisualr::Interactive::AreaChart.new(data_plays, option_play)
   	end
 
