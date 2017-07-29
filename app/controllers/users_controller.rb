@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
       @score = Array[0,0,0,0]
       @plays = Array[0,0,0,0]
+
       
       for i in 0..3 do
         if i != 0 then
@@ -32,21 +33,27 @@ class UsersController < ApplicationController
         else
           game = Game.where("game_date BETWEEN ? AND ? " ,@time,@time.since(1.month)-1)
         end
+
+        score = 0
+        play = 0
+
         game.each do |g|
           if g.e_userid == @user.id
-            @score[i] += g.e_score
-            @plays[i] += 1
+            score += g.e_score
+            play += 1
           elsif g.s_userid == @user.id
-            @score[i] += g.e_score
-            @plays[i] += 1
+            score += g.e_score
+            play += 1
           elsif g.w_userid == @user.id
-            @score[i] += g.e_score
-            @plays[i] += 1
+            score += g.e_score
+            play += 1
           elsif g.n_userid == @user.id
-            @score[i] += g.e_score
-            @plays[i] += 1
+            score += g.e_score
+            play += 1
           end 
         end
+        @score[i] = score
+        @plays[i] = play
       end
 
 
