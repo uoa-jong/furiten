@@ -49,175 +49,176 @@
 						<%#		<%= link_to "<i class='material-icons'>mode_edit</i>".html_safe,edit_user_path(@user),class: "waves-effect waves-light btn-floating light-green"%>
 						<%#	<%end%>
 						<%#</div>%>
-						<br>
+
 					</div>
 
 					<!--table generate-->
 					<div class="col m8 s10 offset-s1">
-
-						<ul class = "tabs">
-							<li class="tab col s4"><a href="#games">Games</a></li>
-				            <li class="tab col s4"><a href="#score">Scores</a></li>
-				            <li class="tab col s4"><a href="#plays">Plays</a></li>
-				        </ul>
-				        <%#games%>
-				        <div id="games">
-							<% @games.each do |g| %>
-							<% e_user = User.find_by_id(g.e_userid)%>
-							<% s_user = User.find_by_id(g.s_userid)%>
-							<% w_user = User.find_by_id(g.w_userid)%>
-							<% n_user = User.find_by_id(g.n_userid)%>
-								<div class="row">	
-									<div class="col s5 offset-s1">
-										<p class="orange-text"><%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
-									</div>
-									<div class = "col s4">
-										<p class="orange-text"> <%= Rule.find_by_id(g.rule_id).rule%></p>
-									</div>
-									<div class="col s2">
-										<%if session[:user_id]!=nil%>
-											<%user = User.find(session[:user_id])%>
-											<%role = Role.find_by(role_name: '管理者')%>
-											<%if user.role_id == role.id%>
-												<ul>
-													<%# 編集　不具合
-													<%#<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
-													<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
-												</ul>
+						<div class="row">
+							<ul class = "tabs">
+								<li class="tab col s4"><a href="#games">Games</a></li>
+					            <li class="tab col s4"><a href="#score">Scores</a></li>
+					            <li class="tab col s4"><a href="#plays">Plays</a></li>
+					        </ul>
+					        <%#games%>
+					        <div id="games">
+								<% @games.each do |g| %>
+								<% e_user = User.find_by_id(g.e_userid)%>
+								<% s_user = User.find_by_id(g.s_userid)%>
+								<% w_user = User.find_by_id(g.w_userid)%>
+								<% n_user = User.find_by_id(g.n_userid)%>
+									<div class="row">	
+										<div class="col s5 offset-s1">
+											<p class="orange-text"><%= g.try(:game_date).try(:strftime, "%Y/%m/%d")%></p>
+										</div>
+										<div class = "col s4">
+											<p class="orange-text"> <%= Rule.find_by_id(g.rule_id).rule%></p>
+										</div>
+										<div class="col s2">
+											<%if session[:user_id]!=nil%>
+												<%user = User.find(session[:user_id])%>
+												<%role = Role.find_by(role_name: '管理者')%>
+												<%if user.role_id == role.id%>
+													<ul>
+														<%# 編集　不具合
+														<%#<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
+														<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
+													</ul>
+												<%end%>
 											<%end%>
-										<%end%>
-									</div>
+										</div>
 
-									<table class="highlight col s10 offset-s1 bordered centered left">
-								        <thead>
-								          	<tr>
-								          		<th></th>
-								              	<th>氏名(学籍)</th>
-								              	<th>スコア</th>
-								          	</tr>
-								        </thead>
+										<table class="highlight col s10 offset-s1 bordered centered left">
+									        <thead>
+									          	<tr>
+									          		<th></th>
+									              	<th>氏名(学籍)</th>
+									              	<th>スコア</th>
+									          	</tr>
+									        </thead>
+
+									        <tbody>
+									        	<tr>
+									            	<td >東</td>
+									            	<%if e_user != nil%><td><%= e_user.user_name %> (<%=e_user.student_id%>)</td>
+													<%else%><td>id = <%= g.e_userid %></td><%end%>
+													<td><%=g.e_score%></td>
+									          	</tr>
+									          	<tr>
+									            	<td>南</td>
+													<%if s_user != nil%><td><%= s_user.user_name %> (<%=s_user.student_id%>)</td>
+													<%else%><td>id = <%= g.s_userid %></td><%end%>
+													<td><%=g.s_score%></td>
+									          	</tr>
+									          	<tr>
+									            	<td>西</td>
+									            	<%if w_user != nil%><td><%= w_user.user_name %> (<%=w_user.student_id%>)</td>
+													<%else%><td>id = <%= g.w_userid %></td><%end%>
+													<td><%=g.w_score%></td>
+									          	</tr>
+									          	<tr>
+									            	<td>北</td>
+									            	<%if n_user != nil%><td><%= n_user.user_name %> (<%=n_user.student_id%>)</td>
+													<%else%><td>id = <%= g.n_userid %></td><%end%>
+													<td><%=g.n_score%></td>
+									          	</tr>
+									        </tbody>
+									    </table>
+									</div>
+								<%end%>    
+									<div class="row">
+										<div class="center col s10">
+											<%= paginate(@games) %>
+										</div>
+									</div>
+							</div>
+
+
+
+							<%#Scores%>
+							<div id="score">
+								<div class="row">
+									<div class="col s8 offset-s2">
+										<p class="orange-text flow-text"> 月ごとの獲得スコア </p>
+									</div>
+									<div class="col s12 m8 offset-m2">
+										<div id = "chart_score",style="width:100%; height:50%"></div>
+										<%= render_chart(@chart_score, 'chart_score') %>
+									</div>
+								</div>
+								<div class="row">
+									<table class="highlight col s9 offset-s1 bordered centered left">
+									    <thead>
+									     	<tr>
+									          	<th>月</th>
+									            <th>スコア</th>
+									        </tr>
+									    </thead>
 
 								        <tbody>
 								        	<tr>
-								            	<td >東</td>
-								            	<%if e_user != nil%><td><%= e_user.user_name %> (<%=e_user.student_id%>)</td>
-												<%else%><td>id = <%= g.e_userid %></td><%end%>
-												<td><%=g.e_score%></td>
+								            	<td><%=@time.ago(3.month).month%>月</td>
+												<td><%=@score[3]%></td>
 								          	</tr>
 								          	<tr>
-								            	<td>南</td>
-												<%if s_user != nil%><td><%= s_user.user_name %> (<%=s_user.student_id%>)</td>
-												<%else%><td>id = <%= g.s_userid %></td><%end%>
-												<td><%=g.s_score%></td>
+								            	<td><%=@time.ago(2.month).month%>月</td>
+												<td><%=@score[2]%></td>
 								          	</tr>
 								          	<tr>
-								            	<td>西</td>
-								            	<%if w_user != nil%><td><%= w_user.user_name %> (<%=w_user.student_id%>)</td>
-												<%else%><td>id = <%= g.w_userid %></td><%end%>
-												<td><%=g.w_score%></td>
+								            	<td><%=@time.ago(1.month).month%>月</td>
+												<td><%=@score[1]%></td>
 								          	</tr>
 								          	<tr>
-								            	<td>北</td>
-								            	<%if n_user != nil%><td><%= n_user.user_name %> (<%=n_user.student_id%>)</td>
-												<%else%><td>id = <%= g.n_userid %></td><%end%>
-												<td><%=g.n_score%></td>
+								            	<td><%=@time.month%>月</td>
+												<td><%=@score[0]%></td>
 								          	</tr>
 								        </tbody>
 								    </table>
 								</div>
-							<%end%>    
+							</div>
+
+
+
+							<%#Counts%>
+							<div id = "plays">
 								<div class="row">
-									<div class="center col s10">
-										<%= paginate(@games) %>
+									<div class="col s8 offset-s2">
+										<p class="orange-text flow-text"> 月ごとの半荘数 </p>
+									</div>
+									<div class="col s12 m8 offset-m2">
+										<div id = "chart_counts",style="width=100%; height=200"></div>
+										<%= render_chart(@chart_counts, 'chart_counts')%>
 									</div>
 								</div>
-						</div>
+								<div class="row">
+									<table class="highlight col s9 offset-s1 bordered centered left">
+									    <thead>
+									     	<tr>
+									          	<th>月</th>
+									            <th>半荘数</th>
+									        </tr>
+									    </thead>
 
-
-
-						<%#Scores%>
-						<div id="score">
-							<div class="row">
-								<div class="col s8 offset-s2">
-									<p class="orange-text flow-text"> 月ごとの獲得スコア </p>
+								        <tbody>
+								        	<tr>
+								            	<td><%=@time.ago(3.month).month%>月</td>
+												<td><%=@plays[3]%></td>
+								          	</tr>
+								          	<tr>
+								            	<td><%=@time.ago(2.month).month%>月</td>
+												<td><%=@plays[2]%></td>
+								          	</tr>
+								          	<tr>
+								            	<td><%=@time.ago(1.month).month%>月</td>
+												<td><%=@plays[1]%></td>
+								          	</tr>
+								          	<tr>
+								            	<td><%=@time.month%>月</td>
+												<td><%=@plays[0]%></td>
+								          	</tr>
+								        </tbody>
+								    </table>
 								</div>
-								<div class="col s12 m8 offset-m2">
-									<div id = "chart_score",style="width:100%; height:50%"></div>
-									<%= render_chart(@chart_score, 'chart_score') %>
-								</div>
-							</div>
-							<div class="row">
-								<table class="highlight col s9 offset-s1 bordered centered left">
-								    <thead>
-								     	<tr>
-								          	<th>月</th>
-								            <th>スコア</th>
-								        </tr>
-								    </thead>
-
-							        <tbody>
-							        	<tr>
-							            	<td><%=@time.ago(3.month).month%>月</td>
-											<td><%=@score[3]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.ago(2.month).month%>月</td>
-											<td><%=@score[2]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.ago(1.month).month%>月</td>
-											<td><%=@score[1]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.month%>月</td>
-											<td><%=@score[0]%></td>
-							          	</tr>
-							        </tbody>
-							    </table>
-							</div>
-						</div>
-
-
-
-						<%#Counts%>
-						<div id = "plays">
-							<div class="row">
-								<div class="col s8 offset-s2">
-									<p class="orange-text flow-text"> 月ごとの半荘数 </p>
-								</div>
-								<div class="col s12 m8 offset-m2">
-									<div id = "chart_counts",style="width=100%; height=200"></div>
-									<%= render_chart(@chart_counts, 'chart_counts')%>
-								</div>
-							</div>
-							<div class="row">
-								<table class="highlight col s9 offset-s1 bordered centered left">
-								    <thead>
-								     	<tr>
-								          	<th>月</th>
-								            <th>半荘数</th>
-								        </tr>
-								    </thead>
-
-							        <tbody>
-							        	<tr>
-							            	<td><%=@time.ago(3.month).month%>月</td>
-											<td><%=@plays[3]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.ago(2.month).month%>月</td>
-											<td><%=@plays[2]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.ago(1.month).month%>月</td>
-											<td><%=@plays[1]%></td>
-							          	</tr>
-							          	<tr>
-							            	<td><%=@time.month%>月</td>
-											<td><%=@plays[0]%></td>
-							          	</tr>
-							        </tbody>
-							    </table>
 							</div>
 						</div>
 					</div>
