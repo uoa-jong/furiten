@@ -1,4 +1,5 @@
 
+
 $( document ).on('turbolinks:load', function(){
      $(".button-collapse").sideNav();
 });
@@ -37,9 +38,12 @@ $(document).on('turbolinks:load', function(){
     $('.modal').modal();
 });
 
-  window.onresize = function(){
+window.onresize = function(){
     
-    drawChart();
+drawChart();
     
-  }
-        
+}
+
+$(document).on('turbolinks:load' , function(){
+    $('.tabs');
+});

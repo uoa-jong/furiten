@@ -62,3 +62,5 @@ gem 'materialize-sass'
 gem 'cloudinary'
 
 gem "google_visualr", ">= 2.5"
+
+gem 'jquery-turbolinks'
