@@ -42,19 +42,19 @@ class UsersController < ApplicationController
         game.each do |g|
           if g.e_userid == @user.id
             score += g.e_score
-            p score
             play += 1
           elsif g.s_userid == @user.id
-            score += g.e_score
+            score += g.s_score
             play += 1
           elsif g.w_userid == @user.id
-            score += g.e_score
+            score += g.w_score
             play += 1
           elsif g.n_userid == @user.id
-            score += g.e_score
+            score += g.n_score
             play += 1
           end 
         end
+
         p "score", score.to_f ,play.to_i
         @score[i] = score.to_f
         @plays[i] = play.to_i
