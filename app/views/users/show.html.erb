@@ -58,10 +58,11 @@
 							<div>
 								<br>
 							</div>
-							<ul class = "tabs",style = "padding:10px;">
-								<li class="tab col s4"><a href="#games">Games</a></li>
-					            <li class="tab col s4"><a href="#score">Scores</a></li>
-					            <li class="tab col s4"><a href="#plays">Plays</a></li>
+							<!--tabs generate-->
+							<ul class = "tabs ",style = "padding:10px;">
+								<li class="tab col s4 mypage_tab" style = "display:none"><a href="#games">Games</a></li>
+					            <li class="tab col s4 mypage_tab" style = "display:none"><a href="#score">Scores</a></li>
+					            <li class="tab col s4 mypage_tab" style = "display:none"><a href="#plays">Plays</a></li>
 					        </ul>
 					        <%#games%>
 					        <div id="games">
@@ -130,8 +131,8 @@
 									</div>
 								<%end%>    
 									<div class="row">
-										<div class="center col s10">
-											<%= paginate(@games) %>
+										<div class="center col s10 page">
+											<%= paginate(@games)%>
 										</div>
 									</div>
 							</div>
