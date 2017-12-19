@@ -33,10 +33,13 @@ class GamesController < ApplicationController
 	def edit
 		@game = Game.find(params[:id])
 		@users = User.all
-		@rules = Rule.all
 	end
 
 	def update
+		params[:game][:e_score] = params[:game][:e_pm].to_f * params[:game][:e_score].to_f
+		params[:game][:s_score] = params[:game][:s_pm].to_f * params[:game][:s_score].to_f
+		params[:game][:w_score] = params[:game][:w_pm].to_f * params[:game][:w_score].to_f
+		params[:game][:n_score] = params[:game][:n_pm].to_f * params[:game][:n_score].to_f
 		@game = Game.find(params[:id])
 		@game.rule_id = params[:rule]
 		if @game.update_attributes(params_game)
