@@ -12,7 +12,7 @@
 			    	</div>
 			    	<!--成績入力-->
 			    	<div class="row">
-			      		<%=form_for @game, url: games_path, method: :post,class: "col s12" do |f|%>
+			      		<%=form_for @game ,class: "col s12" do |f|%>
 			      			<div class="col s12">
 			      				<% @game.errors.each do |attr, message| %>
 									<p class="red-text"><%= message%></p>
@@ -25,8 +25,9 @@
 					      		<!--<input id="game-date" type="date" class="datepicker"> datepicker-->
 					    	</div>
 					    	<div class = "col s3">
+					    		<%@rules = Rule.all%>
 				    			<%= label_tag :rule ,"ルール"%>
-				    			<%= select_tag :rule, options_from_collection_for_select(@rules, :id, :rule, :id)%>
+				    			<%= select_tag :rule, options_from_collection_for_select(@rules, :id, :rule),class: "red-text"%>
 				    		</div>
 
 							<div class="row">

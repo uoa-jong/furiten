@@ -60,12 +60,12 @@
 							</div>
 							<!--tabs generate-->
 							<ul class = "tabs ",style = "padding:10px;">
-								<%#<li class="tab col s4 mypage_tab" style = "display:none"><a href="#games">Games</a></li>
+								<li class="tab col s4 mypage_tab" style = "display:none"><a href="#games">Games</a></li>
 					            <li class="tab col s4 mypage_tab" style = "display:none"><a href="#score">Scores</a></li>
-					            <li class="tab col s4 mypage_tab" style = "display:none"><a href="#plays">Plays</a></li>%>
-					            <li class="tab col s4 mypage_tab"><a href="#games">Games</a></li>
+					            <li class="tab col s4 mypage_tab" style = "display:none"><a href="#plays">Plays</a></li>
+					            <%#<li class="tab col s4 mypage_tab"><a href="#games">Games</a></li>
 					            <li class="tab col s4 mypage_tab"><a href="#score">Scores</a></li>
-					            <li class="tab col s4 mypage_tab"><a href="#plays">Plays</a></li>
+					            <li class="tab col s4 mypage_tab"><a href="#plays">Plays</a></li>%>
 					        </ul>
 					        <%#games%>
 					        <div id="games">
@@ -87,8 +87,7 @@
 												<%role = Role.find_by(role_name: '管理者')%>
 												<%if user.role_id == role.id%>
 													<ul>
-														<%# 編集　不具合
-														<%#<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
+														<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
 														<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
 													</ul>
 												<%end%>
@@ -149,7 +148,7 @@
 										<p class="orange-text flow-text"> 月ごとの獲得スコア </p>
 									</div>
 									<div class="col s12 m8 offset-m2">
-										<div id = "chart_score",style="width:100%; height:50%"></div>
+										<div id = "chart_score"></div>
 										<%= render_chart(@chart_score, 'chart_score') %>
 									</div>
 								</div>
@@ -193,7 +192,7 @@
 										<p class="orange-text flow-text"> 月ごとの半荘数 </p>
 									</div>
 									<div class="col s12 m8 offset-m2">
-										<div id = "chart_counts",style="width=100%; height=200"></div>
+										<div id = "chart_counts"></div>
 										<%= render_chart(@chart_counts, 'chart_counts')%>
 									</div>
 								</div>

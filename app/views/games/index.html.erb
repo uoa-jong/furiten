@@ -33,7 +33,7 @@
 									<%if user.role_id == role.id%>
 										<ul>
 											<%# 編集による不具合%>
-											<%#<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
+											<li><a><%=link_to "<i class='material-icons'>mode_edit</i>".html_safe, edit_game_path(g.id),class: "btn-floating yellow darken-1 waves-effect waves-light left"%>
 											<a><%=link_to "<i class='material-icons'>delete</i>".html_safe,game_path(g) , method: :delete, data: { confirm: "本当に削除しますか?" } ,class: "btn-floating red waves-effect waves-light left"%></a></li>
 										</ul>
 									<%end%>

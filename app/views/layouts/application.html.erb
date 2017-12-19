@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="turbolinks-cache-control" content="no-cache">
     <%= favicon_link_tag('favicon.ico') %>
     <%= favicon_link_tag 'furiten_icon.png', :rel => 'apple-touch-icon'%>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -24,9 +25,9 @@
 		  		<a href="#" class="brand-logo">furiten</a>
 		  		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		  		<ul id="nav-mobile" class="right hide-on-med-and-down">
-	            	<li><%=link_to "対局一覧", games_path%></li>
-		    		<li><%=link_to "ランキング", ranks_path%></li>
 		    		<%if session[:user_id] != nil%>
+		    			<li><%=link_to "対局一覧", games_path%></li>
+		    			<li><%=link_to "ランキング", ranks_path%></li>
 		    			<li><%=link_to "新規対局登録", new_game_path%></li>
 		    			<li><%=link_to "マイページ", user_path(session[:user_id])%></li>
 		    			<%if Role.find_by(id: User.find_by(id: session[:user_id]).role_id)== Role.find_by(role_name: '管理者')%>
@@ -42,9 +43,9 @@
 			</div>
 	    </nav>
 		 	<ul class="side-nav" id="mobile-demo">
-	        		<li><%=link_to "対局一覧", games_path%></li>
-		    		<li><%=link_to "ランキング", ranks_path%></li>
 		    		<%if session[:user_id] != nil%>
+		    			<li><%=link_to "対局一覧", games_path%></li>
+		    			<li><%=link_to "ランキング", ranks_path%></li>
 		    			<li><%=link_to "新規対局登録", new_game_path%></li>
 		    			<li><%=link_to "マイページ", user_path(session[:user_id])%></li>
 		    			<%if Role.find_by(id: User.find_by(id: session[:user_id]).role_id) == Role.find_by(role_name: '管理者')%>
